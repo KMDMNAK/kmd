@@ -1,16 +1,20 @@
-.column{
+.column {
     height: 500px;
+    text-align: center;
 }
 
-.navigation_button{
-    margin-right: 20px;
+.navigation_button {
+    width: 100%;
 }
 
-.column_content{
-    
-}
+.column_content {}
 
-body{
-    background-color:#493759;
+body {
+    background-color: #493759;
     color: white;
+}
+
+#navigation {
+    display: flex;
+    margin-left: 20px;
 }
