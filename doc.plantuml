@@ -35,3 +35,25 @@ ApolloServer -> Network : request input assistance
 Network -> ApolloServer : response input assistance
 
 @enduml
+
+@startuml
+cloud RentalServer{
+    database SQL
+}
+cloud ApolloServer{
+    frame BLOG{
+        [get_article]
+    }
+}
+Node NextServer{
+
+}
+agent Client
+NextServer <.. ApolloServer : initialProps
+NextServer ..> Client : rendering
+ApolloServer ..> SQL : Mutation
+ApolloServer <.. SQL : Query
+Client ..> ApolloServer : fetch , ex) search
+NextServer ..> ApolloServer : update article
+RentalServer ..> RentalServer : crontab
+@enduml

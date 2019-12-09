@@ -5,14 +5,13 @@ import { HttpLink } from "apollo-boost";
 import { InMemoryCache } from "apollo-boost";
 import fetch from "isomorphic-unfetch"
 import { ApolloProvider } from "react-apollo";
-
 const IS_BROWSER = !!process.browser;
 
 if (!IS_BROWSER) {
     global.fetch = fetch;
 }
 
-const URI_ENDPOINT = "http://localhost:4000/graphql";
+const URI_ENDPOINT = "http://localhost:4000/";
 
 function createClient(initialState) {
     return new ApolloClient({
