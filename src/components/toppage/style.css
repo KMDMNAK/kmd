@@ -12,9 +12,27 @@
 body {
     background-color: #493759;
     color: white;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 #navigation {
     display: flex;
     margin-left: 20px;
+}
+
+#ABOUT{
+
+}
+#BLOG{
+
+}
+#Notes{
+
+}
+#Projects{
+
+}
+
+#top_page{
+
 }

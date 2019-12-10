@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./style.css";
-import ids from "./ids.json";
 import Button from "@material-ui/core/Button";
 const Navigation = () => {
   return (
@@ -9,7 +8,7 @@ const Navigation = () => {
         <Button
           variant="contained"
           color="secondary"
-          href={"#" + ids.column_about}
+          href={"#" + styles.ABOUT}
         >
           ABOUT
         </Button>
@@ -18,7 +17,7 @@ const Navigation = () => {
         <Button
           variant="contained"
           color="secondary"
-          href={"#" + ids.column_blog}
+          href={"#" + styles.BLOG}
         >
           BLOG
         </Button>
@@ -27,7 +26,7 @@ const Navigation = () => {
         <Button
           variant="contained"
           color="secondary"
-          href={"#" + ids.column_projects}
+          href={"#" + styles.Projects}
         >
           Projects
         </Button>
@@ -36,7 +35,7 @@ const Navigation = () => {
         <Button
           variant="contained"
           color="secondary"
-          href={"#" + ids.column_notes}
+          href={"#" + styles.Notes}
         >
           Notes
         </Button>

@@ -1,10 +1,9 @@
 import React from 'react';
 import styles from '../style.css'
-import ids from '../ids.json'
 
 const About = () => {
     return (
-        <div className={styles.column} id={ids.column_about}>
+        <div className={styles.column} id={styles.ABOUT}>
             <h1>This is ABOUT!!</h1>
             <div className={styles.column_content}>
                 web engineer : KMD
