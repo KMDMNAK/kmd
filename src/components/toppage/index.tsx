@@ -1,5 +1,6 @@
 import React from 'react';
-import Header from './Header'
+//import Header from './Header'
+import Header from '../../utils/Header'
 import Navigation from './Navigation'
 import ABOUT from './columns/About'
 import BLOG from './columns/Blog'

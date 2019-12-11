@@ -3,7 +3,7 @@ import styles from '../style.css'
 
 const About = () => {
     return (
-        <div className={styles.column} id={styles.ABOUT}>
+        <div className={styles.column} id="ABOUT">
             <h1>This is ABOUT!!</h1>
             <div className={styles.column_content}>
                 web engineer : KMD

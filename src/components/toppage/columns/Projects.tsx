@@ -3,7 +3,7 @@ import styles from '../style.css'
 
 const Projects = () => {
     return (
-        <div className={styles.column} id={styles.Projects}>
+        <div className={styles.column} id="Projects">
             <h1>This is Projects!</h1>
         </div>
     )

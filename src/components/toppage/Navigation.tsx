@@ -8,7 +8,7 @@ const Navigation = () => {
         <Button
           variant="contained"
           color="secondary"
-          href={"#" + styles.ABOUT}
+          href="#ABOUT"
         >
           ABOUT
         </Button>
@@ -17,7 +17,7 @@ const Navigation = () => {
         <Button
           variant="contained"
           color="secondary"
-          href={"#" + styles.BLOG}
+          href="#BLOG"
         >
           BLOG
         </Button>
@@ -26,7 +26,7 @@ const Navigation = () => {
         <Button
           variant="contained"
           color="secondary"
-          href={"#" + styles.Projects}
+          href="#Projects"
         >
           Projects
         </Button>
@@ -35,7 +35,7 @@ const Navigation = () => {
         <Button
           variant="contained"
           color="secondary"
-          href={"#" + styles.Notes}
+          href="#Notes"
         >
           Notes
         </Button>
