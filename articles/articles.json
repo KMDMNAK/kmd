@@ -1,0 +1,21 @@
+{
+    "articles":[
+        {
+            "title":"ウェブにおけるアニメーション",
+            "url":"/animation-for-web",
+            "pubDate":"",
+            "lastUpdate":"",
+            "tags":[
+                
+            ]
+        },{
+            "title":"エンジニアにとってのポートフォリオ",
+            "url":"/portfolio-for-enginner",
+            "pubDate":"",
+            "lastUpdate":"",
+            "tags":[
+
+            ]
+        }
+    ]
+}
