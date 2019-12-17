@@ -12,7 +12,13 @@ ____
     **scriptタグに直書きする必要がある**
 
 - [d3.js](https://github.com/d3/d3)  
-    地図に限らず、jsにおけるdata visualization用ライブラリ
+    地図に限らず、jsにおけるdata visualization用ライブラリ。
+    界隈だと一番有名な気がする。地図特化だとd3-geoライブラリが公開されている。
+    react-simple-mapなど、wrapperも多く存在する。
+    [d3のマウス操作について](https://hondou.homedns.org/pukiwiki/pukiwiki.php?HTML%20D3.js%20Geo)
+- [j-vectormap](http://jvectormap.com/)
+    Reactのwrapperも存在する
+    公式サイトの地図がイかしてる.
 
 - [geo-maps](https://github.com/simonepri/geo-maps)  
     gitのスター数は少ないが、npmには登録済み
