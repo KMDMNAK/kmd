@@ -1,0 +1,8 @@
+query toppage{
+    getCurrentArticleList{
+        title
+        pubDate
+        lastUpdate
+        description
+    }
+}

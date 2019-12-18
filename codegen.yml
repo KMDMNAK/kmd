@@ -1,0 +1,13 @@
+schema: "https://kmdserver.kmdmnak.now.sh/graphql"
+documents:
+  - client/src/utils/graphql/queries/*.gql
+generates:
+  client/src/utils/schemeType.tsx:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+    config:
+      withComponent: false
+      withHooks: true
+      withHOC: false

@@ -9,6 +9,7 @@ const Navigation = () => {
           variant="contained"
           color="secondary"
           href="#ABOUT"
+          fullWidth={true}
         >
           ABOUT
         </Button>
@@ -18,6 +19,7 @@ const Navigation = () => {
           variant="contained"
           color="secondary"
           href="#BLOG"
+          fullWidth={true}
         >
           BLOG
         </Button>
@@ -27,6 +29,7 @@ const Navigation = () => {
           variant="contained"
           color="secondary"
           href="#Projects"
+          fullWidth={true}
         >
           Projects
         </Button>
@@ -36,6 +39,7 @@ const Navigation = () => {
           variant="contained"
           color="secondary"
           href="#Notes"
+          fullWidth={true}
         >
           Notes
         </Button>

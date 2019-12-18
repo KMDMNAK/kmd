@@ -4,7 +4,9 @@
 }
 
 .navigation_button {
-    width: 100%;
+    width: 100px;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .column_content {}
@@ -17,7 +19,9 @@ body {
 
 #navigation {
     display: flex;
-    margin-left: 20px;
+    width: 100%;
+    justify-content: space-evenly;
+    margin-bottom: 60px;
 }
 
 #ABOUT{

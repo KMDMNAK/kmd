@@ -1,3 +1,4 @@
+/*
 import React from "react";
 import { Container } from "next/app";
 import { ApolloClient } from "apollo-boost";
@@ -30,10 +31,15 @@ const client = createClient();
 export default props => {
     const { Component, pageProps, apolloClient } = props;
     return (
-        <Container>
             <ApolloProvider client={client} >
                 <Component {...pageProps}/> 
             </ApolloProvider>
-        </Container>
         );
 };
+*/
+export default props => {
+    const { Component, pageProps } = props;
+    return (
+        <Component {...pageProps} />
+    )
+}

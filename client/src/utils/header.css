@@ -24,7 +24,7 @@
     100%{
         color: deeppink;
         letter-spacing: -5px;
-        transform: translateX(50px);
+        transform: translateX(70px);
     }
 }
 @keyframes mnak-fadeOut{
@@ -102,7 +102,7 @@
     }
     100%{
         opacity: 1;
-        transform:translateX(-60px)
+        transform:translateX(-35px)
     }
 }
 #development{
@@ -117,4 +117,5 @@
 #header{
     font-size: 40px;
     padding: 50px;
+    text-align: center;
 }

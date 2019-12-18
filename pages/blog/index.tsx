@@ -1,6 +1,6 @@
 import React from "react";
 
-import Blog from '../../src/components/blog/index';
+import Blog from '../../client/src/components/blog/index';
 
 const App = () => {
     return (
