@@ -1,45 +1,34 @@
-/*
-import React from "react";
-import { Container } from "next/app";
-import { ApolloClient } from "apollo-boost";
-import { HttpLink } from "apollo-boost";
-import { InMemoryCache } from "apollo-boost";
-import fetch from "isomorphic-unfetch"
-import { ApolloProvider } from "react-apollo";
-const IS_BROWSER = !!process.browser;
+import { ApolloProvider } from 'react-apollo';
+import { ApolloProvider as ApolloHookProvider } from 'react-apollo-hooks'
+import { Provider } from 'react-redux'
+import { createStore } from '../client/components/toppage/redux/ToppageStore';
+import { createApolloClient } from '../client/utils/ApolloClient'
 
-if (!IS_BROWSER) {
-    global.fetch = fetch;
-}
+const client = createApolloClient();
 
-const URI_ENDPOINT = "http://localhost:4000/";
-
-function createClient(initialState) {
-    return new ApolloClient({
-        connectToDevTools: IS_BROWSER,
-        ssrMode: !IS_BROWSER, // Disables forceFetch on the server (so queries are only run once)
-        link: new HttpLink({
-            uri: URI_ENDPOINT, // Server URL (must be absolute)
-            credentials: "same-origin" // Additional fetch() options like `credentials` or `headers`
-        }),
-        cache: new InMemoryCache().restore(initialState || {})
-    });
-}
-
-const client = createClient();
-
-export default props => {
-    const { Component, pageProps, apolloClient } = props;
+const App = (props) => {
+    let { Component, pageProps } = props;
     return (
-            <ApolloProvider client={client} >
-                <Component {...pageProps}/> 
-            </ApolloProvider>
-        );
-};
-*/
-export default props => {
-    const { Component, pageProps } = props;
-    return (
-        <Component {...pageProps} />
+        <ApolloProvider client={client}>
+            <ApolloHookProvider client={client}>
+                {pageProps.reduxInitialProps ? (
+                    <Provider store={createStore(pageProps.reduxInitialProps)}>
+                        <Component {...pageProps} />
+                    </Provider>
+                ) : (<Component {...pageProps} />)
+                }
+            </ApolloHookProvider>
+        </ApolloProvider>
     )
 }
+
+App.getInitialProps = async ({ Component, router, ctx }) => {
+    let pageProps = {}
+    if (Component.getInitialProps) {
+        pageProps = await Component.getInitialProps({ apolloClient: client })
+    }
+    return { pageProps }
+}
+
+
+export default App

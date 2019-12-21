@@ -1,0 +1,12 @@
+query test($page:Int!,$list_amount:Int!){
+  getBlogArticles(
+    page:$page,
+    list_amount:$list_amount
+  ){
+    title
+    pubDate
+    lastUpdate
+    description
+    link
+  }
+}

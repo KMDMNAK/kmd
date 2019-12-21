@@ -1,3 +1,7 @@
+import {resolve} from 'styled-jsx/css';
+
+export default resolve`
+
 .chara{
     animation-fill-mode:forwards;
     display: inline-block;
@@ -119,3 +123,5 @@
     padding: 50px;
     text-align: center;
 }
+
+`

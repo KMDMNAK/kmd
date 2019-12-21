@@ -4,5 +4,6 @@ query toppage{
         pubDate
         lastUpdate
         description
+        link
     }
 }
