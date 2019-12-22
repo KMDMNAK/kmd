@@ -1,12 +1,16 @@
 import React from "react";
 import blogQuery from '../../client/utils/graphql/queries/blog.gql'
 import Blog from '../../client/components/blog/index';
-import { TestQueryVariables } from '../../client/utils/schemeType'
+import { ChangePageQueryVariables } from '../../client/utils/schemeType'
 import { BlogStoreState } from '../../client/components/blog/blog'
+import { createStore } from '../../client/components/blog/redux/BlogStore'
+import { Provider } from 'react-redux'
 
-const AppBlog = () => {
+const AppBlog = (props: { reduxInitialStates: any }) => {
     return (
-        <Blog />
+        <Provider store={createStore(props.reduxInitialStates)}>
+            <Blog />
+        </Provider>
     )
 }
 AppBlog.getInitialProps = async (args: any) => {
@@ -14,7 +18,7 @@ AppBlog.getInitialProps = async (args: any) => {
     if (!apolloClient) {
         return { data: null }
     }
-    const variavles: TestQueryVariables = {
+    const variavles: ChangePageQueryVariables = {
         page: 0,
         list_amount: 5
     }
@@ -23,12 +27,12 @@ AppBlog.getInitialProps = async (args: any) => {
         variables: variavles
     });
     const getBlogArticles = data.getBlogArticles
-    const BlogStoreInitialProps: BlogStoreState = {
+    const BlogStoreInitialStates: BlogStoreState = {
         articleList: getBlogArticles,
         page: 0,
-        list_amount:5
+        list_amount: 5
     }
-    return { reduxInitialProps:  BlogStoreInitialProps}
+    return { reduxInitialStates: BlogStoreInitialStates }
 }
 
 export default AppBlog;

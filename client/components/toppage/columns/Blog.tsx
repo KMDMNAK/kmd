@@ -7,7 +7,7 @@ const Blog = () => {
     return (
         <div className={styles.column} id="BLOG">
             <h1>
-                <Link href="/blog">My Blog</Link>
+                <Link href="/blog"><a href="">My Blog</a></Link>
             </h1>
             <ArticleList />
         </div>
@@ -22,9 +22,8 @@ const ArticleList = () => {
     if (states.current_article_list) {
         return (
             <div>
-                <StyleJSX />
                 {states.current_article_list.map((article: any) => (
-                    <span className="article">
+                    <span className={styles.article}>
                         <Card>
                             <CardContent>
                                 <h1>{article.title}</h1>
@@ -39,20 +38,6 @@ const ArticleList = () => {
     }
     return (<p>no articles</p>)
 }
-
-const style_context = `
-.article{
-    display:inline-block;
-}
-
-`
-
-const StyleJSX = () => (
-    <style jsx>
-        {style_context}
-    </style>
-)
-
 
 
 export default Blog;

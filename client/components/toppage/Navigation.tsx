@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button";
 import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
   button_label: {
-    fontSize: "30px"
+    fontSize: "20px"
   }
 });
 

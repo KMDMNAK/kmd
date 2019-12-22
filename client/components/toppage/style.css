@@ -27,7 +27,6 @@ body {
     width: 100%;
     justify-content: space-around;
     margin-bottom: 60px;
-    font-size: large;
 }
 
 #ABOUT{
@@ -45,4 +44,7 @@ body {
 
 #top_page{
 
+}
+.article{
+    display:inline-block;
 }

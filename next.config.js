@@ -8,12 +8,17 @@ module.exports =
       cssLoaderOptions: {
         importLoaders: 1,
       },
-      webpack(config, options) {
+      webpack(config, {dev}) {
         config.module.rules.push({
           test: /\.(graphql|gql)$/,
           exclude: /node_modules/,
           loader: 'graphql-tag/loader'
         });
+        if (dev) {
+          config.watchOptions = {
+            poll: true
+          }
+        }
         return config
       }
     }))

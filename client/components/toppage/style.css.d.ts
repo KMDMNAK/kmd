@@ -8,6 +8,7 @@ declare const styles: {
   readonly "Notes": string;
   readonly "Projects": string;
   readonly "top_page": string;
+  readonly "article": string;
 };
 export = styles;
 

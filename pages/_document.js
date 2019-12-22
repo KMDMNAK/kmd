@@ -1,4 +1,5 @@
 import Document, { Head, Main, NextScript } from 'next/document'
+import styles from '../client/utils/document.css'
 
 class MyDocument extends Document {
     static async getInitialProps(ctx) {
@@ -13,7 +14,12 @@ class MyDocument extends Document {
                 </Head>
                 <body>
                     <style>
-                        {`body{display:none}`}
+                        {`body{
+                            display:none;
+                            background-color: #493759;
+                            color: white;
+                            font-family: 'Times New Roman', Times, serif;
+                        }`}
                     </style>
                     <Main />
                     <NextScript />
