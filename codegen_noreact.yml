@@ -1,8 +1,0 @@
-schema: "https://kmdserver.kmdmnak.now.sh/graphql"
-documents:
-  - client/utils/graphql/queries/*.gql
-generates:
-  client/utils/schemeType.tsx:
-    plugins:
-      - typescript
-      - typescript-operations

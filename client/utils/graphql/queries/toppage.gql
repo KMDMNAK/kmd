@@ -3,7 +3,7 @@ query toppage{
         title
         pubDate
         lastUpdate
-        description
+        descript
         link
     }
 }

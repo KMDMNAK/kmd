@@ -1,7 +1,7 @@
 import { BlogStoreState } from '../blog'
 import { createStore as createStore_redux, AnyAction, applyMiddleware, compose } from 'redux'
 import { ActionType_change_page, ActionType_change_list } from '../redux/action';
-import createSagaMiddleware from 'redux-saga';
+//import createSagaMiddleware from 'redux-saga';
 
 interface MyWindow extends Window {
     devToolsExtension: any

@@ -1,5 +1,5 @@
 import React from 'react';
-import Template from '../../client/components/blog/ContentTemplate';
+import Template from '../../client/utils/blog-templates/ContentTemplate';
 
 const Content = () => {
     return (

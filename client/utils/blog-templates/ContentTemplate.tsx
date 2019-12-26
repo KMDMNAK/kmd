@@ -2,7 +2,7 @@ import React, { JSXElementConstructor } from 'react';
 
 import SearchIcon from '@material-ui/icons/Search';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import styles from './style.css'
+import styles from './ContentTemplate.css'
 
 const Template = (child: JSX.Element, title: string, description: string | null = null) => {
     const wrapper = () => {

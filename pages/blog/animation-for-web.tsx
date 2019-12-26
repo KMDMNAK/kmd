@@ -1,11 +1,15 @@
 import React from 'react';
-import Template from '../../client/components/blog/ContentTemplate';
+import Template from '../../client/utils/blog-templates/ContentTemplate';
 
+const sentences = {
+    first: "ここでは、webにおけるアニメーションについてやりたいと思います。",
+
+}
 const Content = () => {
     return (
         <div>
-            <p>ここでは、webにおけるアニメーションについてやりたいと思います。</p>
+            <p>{sentences.first}.</p>
         </div>
     )
 }
-export default Template(<Content />,"webアニメーション");
+export default Template(<Content />, "webアニメーション");
