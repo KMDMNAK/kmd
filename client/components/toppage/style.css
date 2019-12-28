@@ -30,6 +30,10 @@ body {
 }
 a{
     color: crimson;
+    text-decoration: none;
+}
+a:hover { 
+    text-decoration: underline;
 }
 #Blog_title{
     margin-bottom: 50px;

@@ -4,6 +4,7 @@ import { useStore, useSelector } from 'react-redux'
 import { ArticleInfo, ChangePageQueryHookResult } from '../../utils/schemeType';
 import { ActionCreator_change_page, ActionCreator_change_list } from './redux/action';
 import styles from './blog.css';
+import Link from 'next/link';
 
 const Blog = () => {
     return (
@@ -26,7 +27,7 @@ const ArticleListDisplay = () => {
             articleList.map((each_article: ArticleInfo) => {
                 return (
                     <div key={each_article.title}>
-                        <h2>{each_article.title}</h2>
+                        <Link href={'/blog/' + each_article.link}><a href=""><h2>{each_article.title}</h2></a></Link>
                         <p>{each_article.descript}</p>
                     </div>)
             })}
