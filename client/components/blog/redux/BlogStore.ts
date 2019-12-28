@@ -15,7 +15,7 @@ export const createStore = (InitialStates: BlogStoreState) => {
         switch (action.type) {
             case ActionType_change_page: {
                 console.log(action.payload)
-                return Object.assign({}, state, { page: action.payload.page })
+                return Object.assign({}, state, { page: action.payload.page ,changePageInitial:false})
             }
             case ActionType_change_list: {
                 return Object.assign({}, state, { articleList: action.payload.articleList })

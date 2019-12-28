@@ -22,7 +22,10 @@ PageIndex.getInitialProps = async (args: any) => {
     if (!apolloClient) {
         return { data: null }
     }
-    const { data } = await apolloClient.query({ query: toppageQuery });
+    const { data } = await apolloClient.query({ query: toppageQuery })
+    if (!data) {
+        return null;
+    }
     const getCurrentArticleList = data.getCurrentArticleList
     const reduxInitialStates = { current_article_list: getCurrentArticleList }
     store = createStore(reduxInitialStates)

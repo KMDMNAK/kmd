@@ -6,7 +6,7 @@ query ChangePage($page:Int!,$list_amount:Int!){
     title
     pubDate
     lastUpdate
-    description
+    descript
     link
   }
 }

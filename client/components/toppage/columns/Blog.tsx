@@ -3,12 +3,17 @@ import styles from '../style.css'
 import { useStore } from 'react-redux';
 import Link from 'next/link'
 
+const sentences = {
+    introduction:"このブログでは主に技術や理論について触れていきたいと思っています。"
+}
+
 const Blog = () => {
     return (
         <div className={styles.column} id="BLOG">
-            <h1>
+            <h1 id={styles.Blog_title}>
                 <Link href="/blog"><a href="">My Blog</a></Link>
             </h1>
+            <p>{sentences.introduction }</p>
             <ArticleList />
         </div>
     )

@@ -3,6 +3,7 @@ declare const styles: {
   readonly "navigation_button": string;
   readonly "column_content": string;
   readonly "navigation": string;
+  readonly "Blog_title": string;
   readonly "ABOUT": string;
   readonly "BLOG": string;
   readonly "Notes": string;

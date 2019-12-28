@@ -26,11 +26,15 @@ AppBlog.getInitialProps = async (args: any) => {
         query: blogQuery,
         variables: variavles
     });
+    if (!data) {
+        return null;
+    }
     const getBlogArticles = data.getBlogArticles
     const BlogStoreInitialStates: BlogStoreState = {
         articleList: getBlogArticles,
         page: 0,
-        list_amount: 5
+        list_amount: 5,
+        changePageInitial:true
     }
     return { reduxInitialStates: BlogStoreInitialStates }
 }

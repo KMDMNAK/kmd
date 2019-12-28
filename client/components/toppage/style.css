@@ -28,7 +28,12 @@ body {
     justify-content: space-around;
     margin-bottom: 60px;
 }
-
+a{
+    color: crimson;
+}
+#Blog_title{
+    margin-bottom: 50px;
+}
 #ABOUT{
 
 }

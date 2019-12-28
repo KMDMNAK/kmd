@@ -2,9 +2,10 @@ import React from 'react';
 import Template from '../../client/utils/blog-templates/ContentTemplate';
 
 const sentences = {
-    first: "ここでは、webにおけるアニメーションについてやりたいと思います。",
+    first: `
+ここでは、webにおけるアニメーションについてやりたいと思います。
+`}
 
-}
 const Content = () => {
     return (
         <div>

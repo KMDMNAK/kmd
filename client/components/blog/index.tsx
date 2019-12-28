@@ -3,14 +3,15 @@ import Header from '../../utils/Header';
 import { useStore, useSelector } from 'react-redux'
 import { ArticleInfo, ChangePageQueryHookResult } from '../../utils/schemeType';
 import { ActionCreator_change_page, ActionCreator_change_list } from './redux/action';
+import styles from './blog.css';
 
 const Blog = () => {
     return (
-        <div id="blog-page">
+        <div id={styles["blog-page"]}>
             <Header last_word="blog" />
+            <ArticleButton />
             <ChangePageHandler />
             <ArticleListDisplay />
-            <ArticleButton />
         </div>
     )
 }
@@ -26,15 +27,29 @@ const ArticleListDisplay = () => {
                 return (
                     <div key={each_article.title}>
                         <h2>{each_article.title}</h2>
-                        <p>{each_article.description}</p>
+                        <p>{each_article.descript}</p>
                     </div>)
             })}
         </div>
     )
 }
 const ChangePageHandler = () => {
+    useEffect(() => {
+        if (!data) {
+            return;
+        }
+        console.log("in change pagehandler", data)
+        const articleList = data.getBlogArticles
+        if (articleList === []) {
+            return;
+        }
+        store.dispatch(ActionCreator_change_list(
+            { articleList: articleList }
+        ))
+    })
     const store = useStore()
     const page = useSelector((state: any) => state.page)
+    const state: BlogStoreState = store.getState();
     const variables: ChangePageQueryVariables = {
         page: page,
         list_amount: 5
@@ -42,16 +57,11 @@ const ChangePageHandler = () => {
     const result: ChangePageQueryHookResult = useChangePageQuery({
         variables: variables
     })
+    if (state.changePageInitial) {
+        return <p>page is {page}</p>
+    }
     const { data, loading, error } = result;
-    useEffect(() => {
-        if (!data) {
-            return;
-        }
-        const articleList = data.getBlogArticles
-        store.dispatch(ActionCreator_change_list(
-            { articleList: articleList }
-        ))
-    })
+
     return (
         <div>
             {loading ? <p>Loading...</p> : <p>page is {page}</p>}
@@ -59,6 +69,7 @@ const ChangePageHandler = () => {
     )
 }
 import { useChangePageQuery, ChangePageQueryVariables } from '../../utils/schemeType'
+import { BlogStoreState } from './blog';
 
 const ArticleButton = () => {
     const store = useStore()
@@ -73,11 +84,9 @@ const ArticleButton = () => {
             <a href="#" onClick={onClickPreviousPage} style={{ color: "red" }}>
                 previous
             </a>
-
             <a href="#" onClick={onClickNextPage} style={{ color: "red" }}>
                 next
             </a>
-
         </div>
     )
 }

@@ -18,19 +18,54 @@ export type Scalars = {
 };
 
 
+export type AddArticleInfoInput = {
+  id: Scalars['String'],
+  link: Scalars['String'],
+  descript?: Maybe<Scalars['String']>,
+  pubDate?: Maybe<Scalars['String']>,
+  lastUpdate?: Maybe<Scalars['String']>,
+  title: Scalars['String'],
+  tags?: Maybe<Scalars['String']>,
+  sentences?: Maybe<Scalars['String']>,
+  likeCOunts?: Maybe<Scalars['Int']>,
+  comments?: Maybe<Scalars['String']>,
+  other?: Maybe<Scalars['String']>,
+};
+
+export type AddArticleInfoPayload = {
+   __typename?: 'addArticleInfoPayload',
+  id?: Maybe<Scalars['String']>,
+};
+
 export type ArticleInfo = {
    __typename?: 'ArticleInfo',
-  pubDate: Scalars['String'],
-  lastUpdate: Scalars['String'],
-  title: Scalars['String'],
-  description: Scalars['String'],
+  id: Scalars['String'],
   link: Scalars['String'],
+  descript?: Maybe<Scalars['String']>,
+  pubDate?: Maybe<Scalars['String']>,
+  lastUpdate?: Maybe<Scalars['String']>,
+  title: Scalars['String'],
+  tags?: Maybe<Scalars['String']>,
+  sentences?: Maybe<Scalars['String']>,
+  likeCOunts?: Maybe<Scalars['Int']>,
+  comments?: Maybe<Scalars['String']>,
+  other?: Maybe<Scalars['String']>,
 };
 
 export enum CacheControlScope {
   Public = 'PUBLIC',
   Private = 'PRIVATE'
 }
+
+export type Mutation = {
+   __typename?: 'Mutation',
+  addArticleInfo?: Maybe<Array<Maybe<AddArticleInfoPayload>>>,
+};
+
+
+export type MutationAddArticleInfoArgs = {
+  objects: Array<AddArticleInfoInput>
+};
 
 export type Query = {
    __typename?: 'Query',
@@ -60,7 +95,7 @@ export type ChangePageQuery = (
   { __typename?: 'Query' }
   & { getBlogArticles: Array<Maybe<(
     { __typename?: 'ArticleInfo' }
-    & Pick<ArticleInfo, 'title' | 'pubDate' | 'lastUpdate' | 'description' | 'link'>
+    & Pick<ArticleInfo, 'title' | 'pubDate' | 'lastUpdate' | 'descript' | 'link'>
   )>> }
 );
 
@@ -71,7 +106,7 @@ export type ToppageQuery = (
   { __typename?: 'Query' }
   & { getCurrentArticleList: Array<Maybe<(
     { __typename?: 'ArticleInfo' }
-    & Pick<ArticleInfo, 'title' | 'pubDate' | 'lastUpdate' | 'description' | 'link'>
+    & Pick<ArticleInfo, 'title' | 'pubDate' | 'lastUpdate' | 'descript' | 'link'>
   )>> }
 );
 
@@ -82,7 +117,7 @@ export const ChangePageDocument = gql`
     title
     pubDate
     lastUpdate
-    description
+    descript
     link
   }
 }
@@ -137,7 +172,7 @@ export const ToppageDocument = gql`
     title
     pubDate
     lastUpdate
-    description
+    descript
     link
   }
 }
