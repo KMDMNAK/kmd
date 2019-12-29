@@ -5,11 +5,7 @@
     "jsx": "preserve",
     "strict": true,
     "esModuleInterop": true,
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
@@ -18,17 +14,12 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "rootDir": "./",
-    "typeRoots": [
-      "node_modules/@types",
-      "@types"
-    ]
+    "typeRoots": ["node_modules/@types", "client/@types"],
+    "baseUrl": ".",
+    "paths": {
+      "*": ["mytypes/*"]
+    }
   },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ]
+  "exclude": ["node_modules"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }

@@ -6,7 +6,8 @@
     "dependencies": {
         "@material-ui/core": "^4.7.2",
         "@material-ui/icons": "^4.5.1",
-        "@next/mdx": "^9.1.4",
+        "@mdx-js/loader": "^1.5.3",
+        "@next/mdx": "^9.1.6",
         "@zeit/next-css": "^1.0.1",
         "apollo-cache-inmemory": "^1.6.5",
         "apollo-client": "^2.6.8",
@@ -42,7 +43,11 @@
         "@types/react-redux": "^7.1.5",
         "@types/styled-jsx": "^2.2.8",
         "@zeit/next-source-maps": "^0.0.3",
+        "babel-loader": "^8.0.6",
         "express": "^4.17.1",
+        "next-compose-plugins": "^2.2.0",
+        "rehype-katex": "^2.0.0",
+        "remark-math": "^2.0.0",
         "style-loader": "^1.1.1",
         "typed-css-modules": "^0.6.3",
         "typescript": "^3.6.2"
