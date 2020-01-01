@@ -34,9 +34,9 @@ AppBlog.getInitialProps = async (args: any) => {
         articleList: getBlogArticles,
         page: 0,
         list_amount: 5,
-        changePageInitial:true
+        changePageInitial: true
     }
     return { reduxInitialStates: BlogStoreInitialStates }
 }
-
+AppBlog.isUsingApollo = true;
 export default AppBlog;

@@ -1,20 +1,19 @@
 const fs = require('fs');
 
-const createInfo = (json_path) => {
+const createInfo = (json_path, folder_path, extension) => {
     const file = fs.readFileSync(json_path);
     const jsonObject = JSON.parse(file);
     const article_infos = jsonObject.ArticleInfos;
-    const link_prefix = "https://kmd.now.sh/blog/"
 
     return article_infos.map((each_item) => {
         //'../pages/blog/'
-        const file_uri = path.join('.',"pages", "blog",each_item.link + ".tsx");
+        const file_uri = path.join('.', "pages", "blog", each_item.link + ".tsx");
         const stats = fs.statSync(file_uri);
         if (!each_item.pubDate) {
-            each_item.pubDate = stats.birthtime.toLocaleDateString() + " " + stats.birthtime.toLocaleTimeString()//('YYYY-MM-DD HH:MM:SS');
+            each_item.pubDate = stats.birthtime.toLocaleDateString() + " " + stats.birthtime.toLocaleTimeString() //('YYYY-MM-DD HH:MM:SS');
         }
         if (!each_item.lastUpdate) {
-            each_item.lastUpdate = stats.ctime.toLocaleDateString() + " " + stats.ctime.toLocaleTimeString()//.format('YYYY-MM-DD HH:MM:SS')
+            each_item.lastUpdate = stats.ctime.toLocaleDateString() + " " + stats.ctime.toLocaleTimeString() //.format('YYYY-MM-DD HH:MM:SS')
         }
         //each_item.link = link_prefix + each_item.link;
         return each_item
@@ -30,7 +29,7 @@ const createApolloClient = () => {
     const fetch = require('node-fetch');
     global.fetch = fetch;
     const endpoint = "https://kmdserver.kmdmnak.now.sh/graphql"
-    //const endpoint="http://localhost:4000/graphql"
+        //const endpoint="http://localhost:4000/graphql"
     const cache = new InMemoryCache();
     const link = new HttpLink({
         uri: endpoint,
@@ -55,23 +54,23 @@ const gql = require('graphql-tag');
 const variables = {
     var: {
         code: "youaregood",
-        ArticleInfos: article_infos
+        ArticleInfos: article_infos,
+        to: "blog"
     }
 }
 console.log(article_infos)
 client.mutate({
-    mutation: gql`
+        mutation: gql `
         mutation add($var:addArticleInfoInput!){
             addArticleInfo(objects:$var){
                 id
             }
         }
     `,
-    variables: variables
-})
+        variables: variables
+    })
     .then(v => console.log(v))
     .catch(e => {
         console.log("error")
         console.log(e)
     })
-

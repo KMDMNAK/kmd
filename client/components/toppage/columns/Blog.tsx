@@ -11,7 +11,7 @@ const Blog = () => {
     return (
         <div className={styles.column} id="BLOG">
             <h1 id={styles.Blog_title}>
-                <Link href="/blog">My Blog</Link>
+                <Link href="/blog"><a href="">My Blog</a></Link>
             </h1>
             <p>{sentences.introduction}</p>
             <ArticleList />
@@ -31,8 +31,8 @@ const ArticleList = () => {
                     <span className={styles.article}>
                         <Card>
                             <CardContent>
-                                <Link href={'/blog/'+article.link}>
-                                    <h1><a href="">{article.title}</a></h1>
+                                <Link href={'/blog/' + article.link}>
+                                    <a href=""><h1>{article.title}</h1></a>
                                 </Link>
                                 <p>{article.pubDate}</p>
                                 <p>{article.descript}</p>

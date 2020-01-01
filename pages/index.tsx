@@ -33,5 +33,5 @@ PageIndex.getInitialProps = async (args: any) => {
         reduxInitialStates: reduxInitialStates
     }
 }
-
+PageIndex.isUsingApollo = true;
 export default PageIndex;

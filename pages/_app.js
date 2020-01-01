@@ -4,7 +4,10 @@ import { ApolloProvider as ApolloHookProvider } from 'react-apollo-hooks'
 import { createApolloClient } from '../client/utils/ApolloClient'
 import Header from "../client/utils/Header";
 
+
 const client = createApolloClient();
+
+
 const App = (props) => {
     let { Component, pageProps } = props;
     console.log("render _app.js")
@@ -18,13 +21,16 @@ const App = (props) => {
             </div>
         )
     }
-    return (
-        <ApolloProvider client={client}>
-            <ApolloHookProvider client={client}>
-                <Component {...pageProps} />
-            </ApolloHookProvider>
-        </ApolloProvider>
-    )
+    if (Component.isUsingApollo) {
+        return (
+            <ApolloProvider client={client}>
+                <ApolloHookProvider client={client}>
+                    <Component {...pageProps} />
+                </ApolloHookProvider>
+            </ApolloProvider>
+        )
+    }
+    return (<Component {...pageProps} />)
 }
 
 App.getInitialProps = async ({ Component, router, ctx }) => {
