@@ -1,0 +1,50 @@
+type Query{
+    getCurrentArticleList:[ArticleInfo]!
+    getBlogArticles(page:Int!,list_amount:Int!):[ArticleInfo]!
+    getCurrentNotesList:[ArticleInfo]!
+    getNotesArticles(page:Int!,list_amount:Int!):[ArticleInfo]!
+}
+
+type ArticleInfo{
+    id:String!
+    link:String!
+    descript:String
+    pubDate:String
+    lastUpdate:String
+    title:String!
+    tags:String
+    sentences:String
+    likeCount:Int
+    comments:String
+    other:String
+}
+
+type Mutation{
+    addArticleInfo(objects:addArticleInfoInput!):[addArticleInfoPayload]
+}
+
+input addArticleInfoInput{
+    code:String,
+    ArticleInfos:[ArticleInfoInput!]
+    to:String!
+}
+
+input ArticleInfoInput{
+    id:String!
+    link:String!
+    descript:String
+    pubDate:String
+    lastUpdate:String
+    title:String!
+    tags:String
+    sentences:String
+    likeCount:Int
+    comments:String
+    other:String
+    code:String
+}
+
+
+type addArticleInfoPayload{
+    id:String
+}

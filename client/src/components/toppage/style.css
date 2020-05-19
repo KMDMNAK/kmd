@@ -1,0 +1,59 @@
+.column {
+    text-align: center;
+    margin-bottom: 200px;
+}
+
+.navigation_button {
+    width: 200px;
+    height: 120px;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.column_content {
+    padding-top: 5%;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+body {
+    background-color: #493759;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#navigation {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-bottom: 60px;
+}
+a{
+    color: crimson;
+    text-decoration: none;
+}
+a:hover { 
+    text-decoration: underline;
+}
+#Blog_title{
+    margin-bottom: 50px;
+}
+#ABOUT{
+
+}
+#BLOG{
+
+}
+#Notes{
+
+}
+#Projects{
+
+}
+
+#top_page{
+
+}
+.article{
+    display:inline-block;
+}

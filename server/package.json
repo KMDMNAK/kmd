@@ -1,0 +1,35 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^2.9.14",
+    "apollo-server-express": "^2.9.14",
+    "express": "^4.17.1",
+    "graphql": "^14.5.8",
+    "graphql-tag": "^2.10.1",
+    "graphql-tools": "^4.0.6",
+    "net": "^1.0.2",
+    "node-fetch": "^2.6.0"
+  },
+  "scripts": {
+    "tsinit": "tsc --init",
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "start": "node api/server.js",
+    "test": "node test/curl.js",
+    "deploy":"now --prod"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^1.9.1",
+    "@graphql-codegen/introspection": "^1.9.1",
+    "@graphql-codegen/typescript": "^1.9.1",
+    "@graphql-codegen/typescript-operations": "^1.9.1",
+    "@graphql-codegen/typescript-resolvers": "^1.9.1",
+    "@types/node-fetch": "^2.5.4",
+    "ts-loader": "^6.2.1",
+    "webpack": "^4.41.3",
+    "webpack-cli": "^3.3.10"
+  }
+}

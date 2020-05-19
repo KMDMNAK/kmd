@@ -1,0 +1,10 @@
+overwrite: true
+
+schema:
+  - ./src/api/scheme.gql
+
+generates:
+  ./src/api/resolverType.ts:
+    plugins:
+      - typescript
+      - typescript-resolvers
