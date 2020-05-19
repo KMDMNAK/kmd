@@ -8,6 +8,7 @@
         "@material-ui/icons": "^4.5.1",
         "@mdx-js/loader": "^1.5.3",
         "@mdx-js/runtime": "^1.5.3",
+        "@nestjs/core": "^6.10.13",
         "@next/mdx": "^9.1.6",
         "@zeit/next-css": "^1.0.1",
         "apollo-cache-inmemory": "^1.6.5",
@@ -36,8 +37,8 @@
     },
     "devDependencies": {
         "@graphql-codegen/cli": "^1.9.1",
-        "@graphql-codegen/typescript": "^1.9.1",
-        "@graphql-codegen/typescript-graphql-files-modules": "^1.9.1",
+        "@graphql-codegen/typescript": "^1.10.0",
+        "@graphql-codegen/typescript-graphql-files-modules": "^1.10.0",
         "@graphql-codegen/typescript-operations": "^1.9.1",
         "@graphql-codegen/typescript-react-apollo": "^1.9.1",
         "@types/buble": "^0.19.2",
