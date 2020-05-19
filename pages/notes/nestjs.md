@@ -9,5 +9,9 @@ src
 - app.module.ts
 - main.ts
 
-NestFactory(INestApplication).create()
+``` typescript
+const interface:INestApplication = NestFactory(INestApplication).create()
+```
 
+## Controller
+各ルートにcontrollerを一つ割り当て、そのなかでさらにルート分岐を定義していく。
