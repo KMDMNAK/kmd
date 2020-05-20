@@ -20,7 +20,7 @@
         "start": "node api/server.js",
         "test": "node test/curl.js",
         "deploy": "now --prod",
-        "dev": "ts-node-dev --respawn --transpileOnly ./src/index.ts"
+        "dev": "set NODE_ENV=development&nodemon ./dist/server.js"
     },
     "devDependencies": {
         "@graphql-codegen/cli": "^1.9.1",
@@ -29,9 +29,13 @@
         "@graphql-codegen/typescript-operations": "^1.9.1",
         "@graphql-codegen/typescript-resolvers": "^1.9.1",
         "@types/node-fetch": "^2.5.4",
+        "nodemon": "^2.0.4",
         "ts-loader": "^6.2.1",
-        "ts-node-dev": "^1.0.0-pre.44",
+        "typescript": "^3.9.3",
         "webpack": "^4.41.3",
-        "webpack-cli": "^3.3.10"
+        "webpack-cli": "^3.3.10",
+        "webpack-dev-server": "^3.11.0",
+        "webpack-node-externals": "^1.7.2",
+        "webpack-shell-plugin": "^0.5.0"
     }
 }
