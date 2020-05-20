@@ -35,11 +35,6 @@
         "misto": "node misto/register.js"
     },
     "devDependencies": {
-        "@babel/core": "^7.9.6",
-        "@babel/plugin-proposal-class-properties": "^7.8.3",
-        "@babel/plugin-transform-parameters": "^7.9.5",
-        "@babel/polyfill": "^7.8.7",
-        "@babel/preset-env": "^7.9.6",
         "@graphql-codegen/cli": "^1.9.1",
         "@graphql-codegen/typescript": "^1.10.0",
         "@graphql-codegen/typescript-graphql-files-modules": "^1.10.0",
@@ -52,11 +47,12 @@
         "@types/styled-jsx": "^2.2.8",
         "@zeit/next-source-maps": "^0.0.3",
         "babel-plugin-transform-define": "^2.0.0",
+        "css-loader": "^3.5.3",
         "express": "^4.17.1",
         "next-compose-plugins": "^2.2.0",
         "rehype-katex": "^2.0.0",
         "remark-math": "^2.0.0",
-        "style-loader": "^1.1.1",
+        "style-loader": "^1.2.1",
         "typed-css-modules": "^0.6.3",
         "typescript": "^3.6.2"
     }
