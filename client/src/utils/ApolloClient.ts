@@ -4,9 +4,11 @@ import { HttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import ApolloClient from 'apollo-client';
 const APOLLO_SERVER = process.env.APOLLO_SERVER
-console.debug({ APOLLO_SERVER })
+
 export const createApolloClient = () => {
-    const endpoint = APOLLO_SERVER || "https://kmdserver.kmdmnak.now.sh/graphql"
+    let endpoint = APOLLO_SERVER || "https://kmdserver.kmdmnak.now.sh/graphql"
+    endpoint = endpoint.endsWith('/graphql') ? endpoint : endpoint + '/graphql'
+    console.log({ endpoint })
     const cache = new InMemoryCache();
     const link = new HttpLink({
         uri: endpoint,
