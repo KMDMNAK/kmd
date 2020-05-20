@@ -1,0 +1,1 @@
+export const APOLLO_SERVER = process.env.APOLLO_SERVER || 3000
