@@ -1,3 +1,3 @@
 
-(cd client && yarn && next build)
+(cd client && npm install && next build)
 (cd client && next export)
