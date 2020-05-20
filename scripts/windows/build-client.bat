@@ -1,3 +1,1 @@
-cd client
-yarn build
-EXIT 2
+cd client && yarn build && yarn export
