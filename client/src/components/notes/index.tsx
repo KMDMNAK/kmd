@@ -16,7 +16,7 @@ const useStyles = makeStyles({
 
 
 const MDXEditor = (props: any) => {
-    const [edingMD, setEdingMD] = useState();
+    const [edingMD, setEdingMD] = useState("");
     const classes = useStyles();
 
     return (
