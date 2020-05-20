@@ -15,16 +15,19 @@ const withSourceMaps = require('@zeit/next-source-maps')
 const internalNodeModulesRegExp = /src(?!\/(?!.*js))/
 const externalNodeModulesRegExp = /node_modules(?!\/@zeit(?!.*node_modules))/
 
-module.exports =
-
-    withCSS(
+module.exports = withCSS(
         withMDX({
             pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
             cssModules: true,
             cssLoaderOptions: {
                 importLoaders: 1,
             },
-            webpack: (config, { dev, webpack, defaultLoaders }) => {
+            webpack: (config, { dev, webpack, defaultLoaders, isServer }) => {
+                if (!isServer) {
+                    config.node = {
+                        fs: 'empty'
+                    }
+                }
                 config.module.rules.push({
                     test: /\.(graphql|gql)$/,
                     exclude: /node_modules/,
@@ -36,18 +39,41 @@ module.exports =
                     }
                 }
                 config.resolve.extensions = [".js", ".jsx", ".ts", ".tsx", ".json", ".css", ".md", ".mdx"];
-                config.externals = config.externals.map(external => {
-                    if (typeof external !== "function") return external
-                    return (ctx, req, cb) => (internalNodeModulesRegExp.test(req) ? cb() : external(ctx, req, cb))
-                })
+                // config.externals = config.externals.map(external => {
+                //     if (typeof external !== "function") return external
+                //     return (ctx, req, cb) => (internalNodeModulesRegExp.test(req) ? cb() : external(ctx, req, cb))
+                // })
 
                 // defaultLoaders.babel.options.plugins.push(["transform-define"])
-                config.module.rules.push({
-                    test: /\.+(js|jsx)$/,
-                    use: defaultLoaders.babel,
-                    include: [internalNodeModulesRegExp],
-                })
+                // config.module.rules.push({
+                //     test: /\.+(js|jsx)$/,
+                //     use: defaultLoaders.babel,
+                //     include: [internalNodeModulesRegExp],
+                // })
                 return config
             }
         })
     )
+    //     webpack: (config, { dev, isServer }) => {
+    //         if (!isServer) {
+    //             config.node = {
+    //                 fs: 'empty'
+    //             }
+    //         }
+
+//         config.module.rules.push({
+//             test: /\.css$/i,
+//             exclude: /node_modules/,
+//             use: [
+//                 "style-loader",
+//                 {
+//                     loader: "css-loader",
+//                     options: {
+//                         modules: true
+//                     }
+//                 }
+//             ]
+//         })
+//         return config
+//     }
+// }
