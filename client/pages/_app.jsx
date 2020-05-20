@@ -34,8 +34,6 @@ const App = (props) => {
 }
 
 App.getInitialProps = async ({ Component, router, ctx }) => {
-
-    console.log("get Initial")
     let pageProps = {}
     if (Component.getInitialProps) {
         pageProps = await Component.getInitialProps({ apolloClient: client })
