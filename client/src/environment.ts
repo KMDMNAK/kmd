@@ -1,1 +1,1 @@
-export const APOLLO_SERVER = process.env.APOLLO_SERVER || 3000
+export const APOLLO_SERVER = process.env.APOLLO_SERVER || "https://kmdserver.kmdmnak.now.sh/graphql"
