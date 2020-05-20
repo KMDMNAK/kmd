@@ -1,4 +1,4 @@
-import Header from '../../client/utils/Header'
+import Header from '../../src/utils/Header'
 
 <Header last_word="NOTE!" />
 

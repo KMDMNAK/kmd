@@ -1,9 +1,9 @@
 import React from "react";
-import blogQuery from '../../client/utils/graphql/queries/blog.gql'
-import Blog from '../../client/components/blog/index';
-import { ChangePageQueryVariables } from '../../client/utils/schemeType'
-import { BlogStoreState } from '../../client/components/blog/blog'
-import { createStore } from '../../client/components/blog/redux/BlogStore'
+import blogQuery from '../../src/utils/graphql/queries/blog.gql'
+import Blog from '../../src/components/blog/index';
+import { ChangePageQueryVariables } from '../../src/utils/schemeType'
+import { BlogStoreState } from '../../src/components/blog/blog'
+import { createStore } from '../../src/components/blog/redux/BlogStore'
 import { Provider } from 'react-redux'
 
 const AppBlog = (props: { reduxInitialStates: any }) => {

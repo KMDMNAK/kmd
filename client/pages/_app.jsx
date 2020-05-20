@@ -1,8 +1,8 @@
 import { ApolloProvider } from 'react-apollo';
 import { ApolloProvider as ApolloHookProvider } from 'react-apollo-hooks'
 //import { createStore } from '../client/components/toppage/redux/ToppageStore';
-import { createApolloClient } from '../client/utils/ApolloClient'
-import Header from "../client/utils/Header";
+import { createApolloClient } from '../src/utils/ApolloClient'
+import Header from "../src/utils/Header";
 
 
 const client = createApolloClient();

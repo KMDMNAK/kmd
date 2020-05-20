@@ -1,5 +1,5 @@
 import React from "react";
-import NotesApp from '../../client/components/notes/index'
+import NotesApp from '../../src/components/notes/index'
 
 const NotesPage = (props: any) => {
     return (

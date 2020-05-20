@@ -1,5 +1,5 @@
 import Document, { Head, Main, NextScript } from 'next/document'
-import styles from '../client/utils/document.css'
+import styles from '../src/utils/document.css'
 
 class MyDocument extends Document {
     static async getInitialProps(ctx) {

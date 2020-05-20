@@ -1,9 +1,8 @@
 import React from "react";
-//import { createStore } from '../client/src/components/toppage/redux/ToppageStore';
 import dynamic from 'next/dynamic'
-import { createStore } from '../client/components/toppage/redux/ToppageStore'
+import { createStore } from '../src/components/toppage/redux/ToppageStore'
 import { Provider } from 'react-redux'
-const Toppage = dynamic(() => import('../client/components/toppage'))
+const Toppage = dynamic(() => import('../src/components/toppage'))
 let store: any = null
 const PageIndex = (props: { reduxInitialStates: any }) => {
     console.log("in Index render", props)
@@ -14,7 +13,7 @@ const PageIndex = (props: { reduxInitialStates: any }) => {
     )
 }
 
-import toppageQuery from '../client/utils/graphql/queries/toppage.gql'
+import toppageQuery from '../src/utils/graphql/queries/toppage.gql'
 
 PageIndex.getInitialProps = async (args: any) => {
     console.log("index initial")
