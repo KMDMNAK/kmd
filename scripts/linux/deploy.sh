@@ -1,3 +1,3 @@
 
 (cd client && npm install && next build)
-(cd client && npm install && next export)
+(cd client && next export)
