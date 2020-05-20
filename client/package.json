@@ -31,6 +31,7 @@
         "dev": "next",
         "build": "next build",
         "start": "next start",
+        "export": "next export",
         "css": "tcm client --watch",
         "misto": "node misto/register.js"
     },
