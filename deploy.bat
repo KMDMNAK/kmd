@@ -1,9 +1,10 @@
-cd server
-yarn build
+START /b scripts\build-client
+START /b scripts\build-server
 
-cd ..
+ECHO Back from build-client
+ECHO "END client"
 
-cd client
-yarn build
+ECHO Back from build-server
+ECHO "END server"
 
-now
+ECHO "END!"
