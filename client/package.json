@@ -32,7 +32,6 @@
         "build": "next build",
         "start": "next start",
         "css": "tcm client --watch",
-        "deploy": "now --prod",
         "misto": "node misto/register.js"
     },
     "devDependencies": {

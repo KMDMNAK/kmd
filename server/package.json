@@ -19,7 +19,6 @@
         "watch": "webpack --watch",
         "start": "node api/server.js",
         "test": "node test/curl.js",
-        "deploy": "now --prod",
         "dev": "set NODE_ENV=development&nodemon ./dist/server.js"
     },
     "devDependencies": {
