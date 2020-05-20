@@ -2,12 +2,12 @@ import React from 'react';
 //import Header from './Header'
 import dynamic from 'next/dynamic'
 import Header from '../../utils/Header'
-import Navigation from './Navigation'
-import ABOUT from './columns/About'
+import Navigation from './navigation'
+import ABOUT from './columns/about'
 //import BLOG from './columns/Blog'
-const BLOG = dynamic(() => import('./columns/Blog'))
-import Projects from './columns/Projects'
-import Notes from './columns/Notes'
+const BLOG = dynamic(() => import('./columns/blog'))
+import Projects from './columns/projects'
+import Notes from './columns/notes'
 import styles from './style.css'
 
 
