@@ -1,3 +1,3 @@
-cd client
-next build
-next export
+
+(cd client && next build)
+(cd client && next export)
