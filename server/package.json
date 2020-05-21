@@ -22,11 +22,6 @@
         "dev": "set NODE_ENV=development&nodemon ./dist/server.js"
     },
     "devDependencies": {
-        "@graphql-codegen/cli": "^1.9.1",
-        "@graphql-codegen/introspection": "^1.9.1",
-        "@graphql-codegen/typescript": "^1.9.1",
-        "@graphql-codegen/typescript-operations": "^1.9.1",
-        "@graphql-codegen/typescript-resolvers": "^1.9.1",
         "@types/node-fetch": "^2.5.4",
         "nodemon": "^2.0.4",
         "ts-loader": "^6.2.1",
