@@ -33,7 +33,8 @@
         "start": "next start",
         "export": "next export",
         "css": "tcm client --watch",
-        "misto": "node misto/register.js"
+        "misto": "node misto/register.js",
+        "deploy:netlify": "node netlify.deploy.js"
     },
     "devDependencies": {
         "@graphql-codegen/cli": "^1.9.1",
