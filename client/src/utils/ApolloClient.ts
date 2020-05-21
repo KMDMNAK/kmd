@@ -1,7 +1,7 @@
 
 import fetch from 'isomorphic-unfetch'
 import { HttpLink } from 'apollo-link-http'
-import { InMemoryCache } from 'apollo-cache-inmemory';
+import { InMemoryCache, NormalizedCacheObject } from 'apollo-cache-inmemory';
 import ApolloClient from 'apollo-client';
 import { APOLLO_SERVER } from '../environment'
 
@@ -23,3 +23,5 @@ export const createApolloClient = () => {
     });
     return client
 }
+
+export type ApolloClientType = ApolloClient<NormalizedCacheObject>

@@ -1,2 +1,2 @@
-start scripts\windows\dev-client
-start scripts\windows\dev-server
+start /b scripts\windows\dev-client
+start /b scripts\windows\dev-server

@@ -8,7 +8,7 @@ import Header from "../src/utils/Header";
 const client = createApolloClient();
 
 
-const App = (props) => {
+const App = (props: { Component: any, pageProps: any }) => {
     let { Component, pageProps } = props;
     console.log("render _app.js")
     console.log(pageProps.store)
@@ -33,7 +33,7 @@ const App = (props) => {
     return (<Component {...pageProps} />)
 }
 
-App.getInitialProps = async ({ Component, router, ctx }) => {
+App.getInitialProps = async ({ Component, router, ctx }: { Component: any, router: any, ctx: any }) => {
     let pageProps = {}
     if (Component.getInitialProps) {
         pageProps = await Component.getInitialProps({ apolloClient: client })
