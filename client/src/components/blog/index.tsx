@@ -6,16 +6,6 @@ import { ActionCreator_change_page, ActionCreator_change_list } from './redux/ac
 import styles from './blog.css';
 import Link from 'next/link';
 
-const Blog = () => {
-    return (
-        <div id={styles["blog-page"]}>
-            <Header last_word="blog" />
-            <ArticleButton />
-            <ChangePageHandler />
-            <ArticleListDisplay />
-        </div>
-    )
-}
 
 const ArticleListDisplay = () => {
     const articleList = useSelector((state: any) => state.articleList);
@@ -71,7 +61,9 @@ const ChangePageHandler = () => {
 }
 import { useChangePageQuery, ChangePageQueryVariables } from '../../utils/schemeType'
 import { BlogStoreState } from './blog';
-
+/**
+ * operation button for next and previous
+ */
 const ArticleButton = () => {
     const store = useStore()
     const onClickNextPage = () => {
@@ -88,6 +80,17 @@ const ArticleButton = () => {
             <a href="#" onClick={onClickNextPage} style={{ color: "red" }}>
                 next
             </a>
+        </div>
+    )
+}
+
+const Blog = () => {
+    return (
+        <div id={styles["blog-page"]}>
+            <Header last_word="blog" />
+            <ArticleButton />
+            <ChangePageHandler />
+            <ArticleListDisplay />
         </div>
     )
 }
