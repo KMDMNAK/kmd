@@ -1,10 +1,23 @@
 import React from "react";
-import blogQuery from '../../src/utils/graphql/queries/blog.gql'
+// import blogQuery from '../../src/utils/graphql/queries/blog.gql'
 import Blog from '../../src/components/blog/index';
-import { ChangePageQueryVariables } from '../../src/utils/schemeType'
-import { BlogStoreState } from '../../src/components/blog/blog'
+import { ChangePageQueryVariables, ArticleInfo, ChangePageQueryHookResult, ChangePageDocument } from '../../@types/apolloType'
 import { createStore } from '../../src/components/blog/redux/BlogStore'
 import { Provider } from 'react-redux'
+
+export type BlogStoreState = {
+    articleList: [ArticleInfo] | undefined
+    page: number
+    list_amount: number,
+    changePageInitial: boolean
+}
+export type ChangePageArgs = {
+    page: number
+}
+
+export type ChangeListArgs = {
+    articleList: any
+}
 
 const AppBlog = (props: { reduxInitialStates: any }) => {
     return (
@@ -23,7 +36,7 @@ AppBlog.getInitialProps = async (args: any) => {
         list_amount: 5
     }
     const { data } = await apolloClient.query({
-        query: blogQuery,
+        query: ChangePageDocument,
         variables: variavles
     });
     if (!data) {

@@ -10,6 +10,20 @@ import styles from './blog.css';
 import Link from 'next/link';
 
 
+export type BlogStoreState = {
+    articleList: [ArticleInfo] | undefined
+    page: number
+    list_amount: number,
+    changePageInitial: boolean
+}
+export type ChangePageArgs = {
+    page: number
+}
+
+export type ChangeListArgs = {
+    articleList: any
+}
+
 const ArticleListDisplay = () => {
     const articleList = useSelector((state: any) => state.articleList);
     if (!articleList) {
@@ -63,7 +77,6 @@ const ChangePageHandler = () => {
     )
 }
 
-import { BlogStoreState } from './blog';
 /**
  * operation button for next and previous
  */
