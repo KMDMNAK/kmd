@@ -9,7 +9,7 @@ export const SetSentence = (props: SentenceProps) => {
     return (
         <div style={{ textAlign: "left" }}>
             {props.sentences.map((each_sentence: string) => (
-                <p>{each_sentence}</p>
+                <p key={each_sentence}>{each_sentence}</p>
             ))}
         </div>
     )
