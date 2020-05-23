@@ -1,36 +1,37 @@
-import React from "react";
+import React, { createContext } from "react";
 import dynamic from 'next/dynamic'
-import { createStore } from '../src/components/toppage/redux/ToppageStore'
-// import { Provider } from 'react-redux'
 import { ApolloClientType } from '../src/utils/ApolloClient'
-import { QueryGetBlogArticlesArgs } from '../@types/apolloType'
+import { useToppageQuery, ToppageDocument, ToppageQuery, Maybe } from '../@types/apolloType'
 const Toppage = dynamic(() => import('../src/components/toppage'))
-// let store: any = null
 
-const Index = (props: { reduxInitialStates: any }) => {
-    console.log("in Index render", props)
-    return (
-        <Provider store={createStore(props.reduxInitialStates)}>
-            <Toppage />
-        </Provider>
-    )
+interface IndexProps {
+    data: ToppageQuery
 }
 
-import toppageQuery from '../src/utils/graphql/queries/toppage.gql'
+const IndexDataHandler = () => {
+    const { loading, data } = useToppageQuery()
+    return
+}
 
-Index.getInitialProps = async (args: { apolloClient: ApolloClientType }) => {
-    console.log("index initial")
+const Index = (props: IndexProps) => {
+    console.debug("in Index render", props)
+    const toppage = props.data
+    return <Toppage toppage={toppage} />
+}
+
+Index.getInitialProps = async (
+    args: { apolloClient: ApolloClientType }
+): Promise<IndexProps> => {
+    console.debug('index', 'initialProps')
     const { apolloClient } = args;
-    if (!apolloClient) return { data: null }
-    const { data } = await apolloClient.query({ query: toppageQuery })
-    if (!data) return { data: null };
-
-    const getCurrentArticleList = data.getCurrentArticleList
-    const reduxInitialStates = { current_article_list: getCurrentArticleList }
-    // store = createStore(reduxInitialStates)
-    return {
-        reduxInitialStates: reduxInitialStates
+    if (!apolloClient) throw Error('No Apollo Client')
+    const { loading, data } = await apolloClient.query<ToppageQuery>({ query: ToppageDocument })
+    while (loading) {
+        await new Promise((resolve) => {
+            setTimeout(() => resolve(), 300)
+        })
     }
+    return { data }
 }
 Index.isUsingApollo = true;
 export default Index;

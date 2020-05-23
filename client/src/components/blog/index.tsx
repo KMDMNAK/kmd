@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react';
-import Header from '../../utils/Header';
+
 import { useStore, useSelector } from 'react-redux'
-import { ArticleInfo, ChangePageQueryHookResult } from '../../utils/schemeType';
+import { ArticleInfo, ChangePageQueryHookResult, useChangePageQuery, ChangePageQueryVariables } from '../../../@types/apolloType'
 import { ActionCreator_change_page, ActionCreator_change_list } from './redux/action';
+
+import Header from '../header';
 import styles from './blog.css';
+
 import Link from 'next/link';
 
 
@@ -59,7 +62,7 @@ const ChangePageHandler = () => {
         </div>
     )
 }
-import { useChangePageQuery, ChangePageQueryVariables } from '../../utils/schemeType'
+
 import { BlogStoreState } from './blog';
 /**
  * operation button for next and previous

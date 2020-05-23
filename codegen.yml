@@ -1,5 +1,9 @@
 overwrite: true
 
+documents:
+  - ./graphql/query/*.gql
+  - ./graphql/mutate/*.gql
+
 schema:
   - ./server/src/api/scheme.gql
 
@@ -13,3 +17,7 @@ generates:
       - typescript
       - typescript-operations
       - typescript-react-apollo
+    config:
+      withComponent: false
+      withHooks: true
+      withHOC: false
