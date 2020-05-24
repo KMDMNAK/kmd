@@ -7,7 +7,7 @@ import typeDefs from './api/scheme.gql'
 const app = express();
 
 const resolvers: Apollo.IResolvers<any, any> = Resolvers as Apollo.IResolvers<any, any>;
-const server = new ApolloServer({ typeDefs, resolvers, debug: true })
+const server = new ApolloServer({ typeDefs, resolvers, debug: true, playground: true, introspection: true })
 const logMiddleware: RequestHandler<ParamsDictionary, any, any> = (req, res, next) => {
     console.log({
         route: req.url

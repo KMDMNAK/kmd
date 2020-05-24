@@ -1,7 +1,6 @@
 {
   "name": "kmd",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "devDependencies": {
     "@graphql-codegen/cli": "^1.14.0",
@@ -14,5 +13,6 @@
   },
   "scripts": {
     "codegen": "graphql-codegen --config codegen.yml"
-  }
+  },
+  "dependencies": {}
 }

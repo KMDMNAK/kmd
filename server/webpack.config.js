@@ -5,10 +5,12 @@ module.exports = {
     target: 'node',
     output: {
         filename: '[name].js',
-        path: path.join(__dirname, "dist")
+        path: path.join(__dirname, "dist"),
+        libraryTarget: 'this'
     },
     entry: {
-        "server": "./src/index.ts"
+        "server": "./src/index.ts",
+        "app": "./src/app.ts"
     },
     mode: "development",
     module: {

@@ -1,12 +1,17 @@
 {
     "name": "server",
     "version": "1.0.0",
-    "main": "index.js",
+    "main": "dist/app.js",
     "license": "MIT",
+    "engines": {
+    "node": "10"
+    },
     "dependencies": {
         "apollo-server": "^2.9.14",
         "apollo-server-express": "^2.9.14",
         "express": "^4.17.1",
+        "firebase-admin": "^8.12.1",
+        "firebase-functions": "3.3.0",
         "graphql": "^14.5.8",
         "graphql-tag": "^2.10.1",
         "graphql-tools": "^4.0.6",
@@ -23,6 +28,7 @@
     },
     "devDependencies": {
         "@types/node-fetch": "^2.5.4",
+        "firebase-functions-test": "^0.2.1",
         "nodemon": "^2.0.4",
         "ts-loader": "^6.2.1",
         "typescript": "^3.9.3",
