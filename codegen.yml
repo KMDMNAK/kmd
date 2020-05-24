@@ -8,7 +8,7 @@ schema:
   - ./server/src/api/scheme.gql
 
 generates:
-  ./server/src/api/resolverType.ts:
+  ./server/src/@types/resolverType.ts:
     plugins:
       - typescript
       - typescript-resolvers

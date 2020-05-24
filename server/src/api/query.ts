@@ -1,5 +1,5 @@
 
-import { QueryResolvers, ArticleInfo, QueryGetBlogArticlesArgs } from './resolverType'
+import { QueryResolvers, ArticleInfo, QueryGetBlogArticlesArgs } from '../@types/resolverType'
 import getBlogArticles from '../utils/queryBlog'
 import getNotesArticles from '../utils/queryNotes'
 const beforeMethod = (methodName: string) => {

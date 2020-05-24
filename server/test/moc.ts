@@ -1,4 +1,4 @@
-import { ArticleInfo } from './resolverType'
+import { ArticleInfo } from '../src/@types/resolverType'
 
 export const getBlogArticles_mocData: (num: number) => ArticleInfo[] = (num: number) => Array.from({ length: num }, (_, i) => i).map((i: number) => {
     return {

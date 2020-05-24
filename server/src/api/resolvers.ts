@@ -1,6 +1,6 @@
-import { Resolvers, } from './resolverType'
+import { Resolvers, } from '../@types/resolverType'
 import Mutation from './mutate'
-import {Query} from './query'
+import { Query } from './query'
 
 
 const resolvers: Resolvers = {
