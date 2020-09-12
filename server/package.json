@@ -11,7 +11,7 @@
         "graphql-tag": "^2.10.1",
         "graphql-tools": "^4.0.6",
         "net": "^1.0.2",
-        "node-fetch": "^2.6.0"
+        "node-fetch": "^2.6.1"
     },
     "scripts": {
         "tsinit": "tsc --init",
