@@ -1,0 +1,46 @@
+<mxfile host="65bd71144e" modified="2020-12-31T12:45:15.009Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" etag="QfFUx3FtYrdmuD9ffkHK" version="13.10.0" type="embed">
+    <diagram id="LkkhM9hpOwHaFc3a3sou" name="Page-1">
+        <mxGraphModel dx="4593" dy="1893" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="1600" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="20" value="" style="group" vertex="1" connectable="0" parent="1">
+                    <mxGeometry width="1600" height="1700" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="" style="whiteSpace=wrap;html=1;strokeColor=#2D7600;fontColor=#ffffff;fillColor=#1F3932;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;connectable=1;" parent="20" vertex="1">
+                    <mxGeometry width="1600" height="1700" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#006241;fontSize=80;strokeColor=none;" parent="20" vertex="1">
+                    <mxGeometry x="110" y="40" width="460" height="460" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="KMD Development" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Verdana;fontSize=80;fontColor=#FFFFFF;" parent="20" vertex="1">
+                    <mxGeometry x="270" y="180" width="980" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="About" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Verdana;fontSize=100;fontColor=#FFFFFF;" parent="20" vertex="1">
+                    <mxGeometry x="245" y="490" width="1120" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#D4E9E2;fillColor=#D4E9E2;" parent="20" vertex="1">
+                    <mxGeometry x="5" y="692" width="1590" height="1008" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="" style="group" vertex="1" connectable="0" parent="1">
+                    <mxGeometry x="1760" width="1600" height="1700" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="" style="whiteSpace=wrap;html=1;strokeColor=#2D7600;fontColor=#ffffff;fillColor=#1F3932;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;connectable=1;" vertex="1" parent="21">
+                    <mxGeometry width="1600" height="1700" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#006241;fontSize=80;strokeColor=none;" vertex="1" parent="21">
+                    <mxGeometry x="110" y="40" width="460" height="460" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="KMD Development" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Verdana;fontSize=80;fontColor=#FFFFFF;" vertex="1" parent="21">
+                    <mxGeometry x="270" y="180" width="980" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="About" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Verdana;fontSize=100;fontColor=#FFFFFF;" vertex="1" parent="21">
+                    <mxGeometry x="245" y="490" width="1120" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#D4E9E2;fillColor=#56301F;" vertex="1" parent="21">
+                    <mxGeometry x="5" y="692" width="1590" height="1008" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

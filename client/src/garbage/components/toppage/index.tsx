@@ -10,7 +10,7 @@ import Notes from './columns/notes'
 
 import styles from './style.css'
 
-import { ToppageQuery, Maybe, ArticleInfo } from '../../../@types/apolloType'
+import { ToppageQuery, Maybe, ArticleInfo } from '../../@types/apolloType'
 export type CurrentArticleType = Maybe<{ __typename?: "ArticleInfo" | undefined; }
     & Pick<ArticleInfo, "title" | "pubDate" | "lastUpdate" | "descript" | "link">>
 

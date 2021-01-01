@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { ArticleInfo, useChangePageQuery, ChangePageQueryVariables, ChangePageQuery } from '../../../@types/apolloType'
+import { ArticleInfo, useChangePageQuery, ChangePageQueryVariables, ChangePageQuery } from '../../@types/apolloType'
 
 
 import Header from '../header';

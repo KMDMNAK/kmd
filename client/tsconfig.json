@@ -20,14 +20,9 @@
     "rootDir": "./",
     "typeRoots": [
       "node_modules/@types",
-      "client/@types"
+      "src/@types"
     ],
-    "baseUrl": ".",
-    "paths": {
-      "*": [
-        "mytypes/*"
-      ]
-    }
+    "baseUrl": "."
   },
   "exclude": [
     "node_modules"
@@ -36,7 +31,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "pages/test/mdx.jsx",
-    "pages/test/mdview.jsx"
+    "src/pages/test/mdx.jsx",
+    "src/pages/test/mdview.jsx"
   ]
 }

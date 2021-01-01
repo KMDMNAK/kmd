@@ -1,0 +1,22 @@
+div {
+    text-align: center;
+    width: 200px;
+    height: 100px;
+}
+
+.starbucks-green {
+    background-color: #006241;
+    /* filter: saturate(240%) brightness(46%); */
+}
+
+.starbucks-deepgreen {
+    background-color: #1F3932;
+}
+
+.starbucks-blue {
+    background-color: #D4E9E2;
+}
+
+.startbucks-brown{
+    background-color: #56301F;
+}

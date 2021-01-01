@@ -2,6 +2,6 @@ import React from 'react'
 
 export default () => {
     return (<>
-        Hello Blog
+        Hello Projects
     </>)
 }
