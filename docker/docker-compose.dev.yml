@@ -1,0 +1,33 @@
+version: "3.3"
+
+services:
+  client-dev:
+    container_name: "kmd_client_dev"
+    build:
+      context: ../client
+      dockerfile: Dockerfile
+    volumes:
+      - ~/.ssh:/.ssh
+      - ../client:/workspace
+    tty: true
+    command: "/bin/bash"
+    network_mode: host
+    extra_hosts:
+      - localhost:162.251.15.115
+
+  server-dev:
+    container_name: "kmd_server_dev"
+    build:
+      context: ../server
+      dockerfile: Dockerfile
+    volumes:
+      - ~/.ssh:/.ssh
+      - ../server:/workspace
+    extra_hosts:
+      - localhost:162.251.15.115
+
+  database-dev:
+    container_name: "kmd_database_dev"
+    build:
+      context: ../database
+      dockerfile: Dockerfile

@@ -1,0 +1,20 @@
+version: "3.3"
+
+services:
+  client:
+    container_name: "kmd_client"
+    build:
+      context: ../client
+      dockerfile: Dockerfile
+
+  server:
+    container_name: "kmd_server"
+    build:
+      context: ../server
+      dockerfile: Dockerfile
+
+  database:
+    container_name: "kmd_database"
+    build:
+      context: ../client
+      dockerfile: Dockerfile

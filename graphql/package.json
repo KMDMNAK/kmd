@@ -13,6 +13,5 @@
   },
   "scripts": {
     "codegen": "graphql-codegen --config codegen.yml"
-  },
-  "dependencies": {}
+  }
 }
