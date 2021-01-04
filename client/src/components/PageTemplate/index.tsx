@@ -1,25 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from './index.module.css'
 
-const ON_OFF = [0, -20]
-const register = () => {
-    const sidebar = document.getElementById('sidebar')
-    if (!sidebar) return
-    sidebar.style.setProperty('right', `${ON_OFF[1]}%`);
-    sidebar.style.setProperty('width', `${-1 * ON_OFF[1]}%`);
-    document.addEventListener('click', (event) => {
-        sidebar.style.setProperty('right', (event.target as any).id === 'hamburger-icon' ? `${ON_OFF[0]}%` : `${ON_OFF[1]}%`)
-    })
+import Drawer from './Drawer'
 
-}
+import {
+    useDisclosure,
+    Text
+} from '@chakra-ui/react'
 
 const Component: React.FC<{ title: string, Content: React.FC }> = props => {
+    const { isOpen, onOpen, onClose } = useDisclosure()
+
     return (<>
-        <div id={styles.sidebar}></div>
+        {/* <div id={styles.sidebar}></div> */}
+        <Drawer {...{ isOpen, onClose }} />
         <div>
-            {/* <div>
-                <img id={styles['hamburger-icon']} src="/static/menu.svg" width="32" height="32" />
-            </div> */}
+            <div>
+                <img onClick={onOpen} id={styles['hamburger-icon']} src="/static/menu.svg" width="32" height="32" />
+            </div>
             <div className={styles["starbucks-deepgreen"]}>
                 <div className={styles["page-top"]}>
                     <div className={styles["page-top-circle"]}></div>
@@ -30,7 +28,7 @@ const Component: React.FC<{ title: string, Content: React.FC }> = props => {
                 <div className={styles["page-bottom"]}>
                     <div className={styles["title-and-content"]}>
                         <div className={styles["bottom-title"]}>
-                            <h1>{props.title}</h1>
+                            <Text fontSize="4xl">{props.title}</Text>
                         </div>
                         <props.Content />
                     </div>

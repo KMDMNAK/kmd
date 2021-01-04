@@ -9,7 +9,9 @@ class MyDocument extends Document {
     render() {
         return (
             <html>
-                <Head></Head>
+                <Head>
+                    <script src="https://cdn.jsdelivr.net/npm/frappe-charts@1.2.4/dist/frappe-charts.min.iife.js"></script>
+                </Head>
                 <body>
                     <Main />
                     <NextScript />

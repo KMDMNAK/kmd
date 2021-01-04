@@ -33,6 +33,17 @@ module.exports = withCSS(
                     exclude: /node_modules/,
                     loader: 'graphql-tag/loader'
                 });
+                config.module.rules.push({
+                    test: /\.svg$/,
+                    use: [{
+                        loader: "babel-loader"
+                    }, {
+                        loader: "react-svg-loader",
+                    }]
+                })
+                config.externals = {
+                    "frappe": "frappe"
+                }
                 if (dev) {
                     config.watchOptions = {
                         poll: true

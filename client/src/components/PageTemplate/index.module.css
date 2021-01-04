@@ -18,7 +18,7 @@
 #hamburger-icon {
     position: fixed;
     right: 10%;
-    top: 40;
+    top: 40px;
     cursor: pointer;
 }
 
@@ -40,10 +40,10 @@
 
 .page-top-circle {
     position: absolute;
-    width: 210px;
-    height: 210px;
+    width: 230px;
+    height: 230px;
     border-radius: 50%;
-    top: 20px;
+    top: 30px;
     left: 15%;
     background: #006241;
 }
@@ -51,20 +51,20 @@
 .page-top-sentence {
     color: white;
     position: absolute;
-    top: 100px;
-    left: 25%;
+    top: 110px;
+    left: 27%;
     font-size: 35px;
 }
 
 .page-bottom {
     width: 100%;
-    height: 500px;
+    height: 100%;
     color: black;
     object-fit: contain;
 }
 
 .title-and-content {
-    padding-top: 80px;
+    padding-top: 60px;
     padding-left: 90px;
     padding-right: 90px;
 }
@@ -72,7 +72,7 @@
 .bottom-title {
     font-family: SODO Sans, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     text-align: center;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
 }
 
 .content-en {
