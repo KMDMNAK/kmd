@@ -25,9 +25,12 @@ services:
       - ../server:/workspace
     extra_hosts:
       - localhost:162.251.15.115
-
-  database-dev:
-    container_name: "kmd_database_dev"
+  
+  ghost-dev:
+    container_name: "kmd_ghost_dev"
     build:
-      context: ../database
+      context: ../services/ghost
       dockerfile: Dockerfile
+    ports:
+      - "2368:2368"
+

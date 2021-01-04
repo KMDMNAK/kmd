@@ -16,5 +16,11 @@ services:
   database:
     container_name: "kmd_database"
     build:
-      context: ../client
+      context: ../services/database
+      dockerfile: Dockerfile
+  
+  ghost:
+    container_name: "kmd_ghost"
+    build:
+      context: ../services/ghost
       dockerfile: Dockerfile
