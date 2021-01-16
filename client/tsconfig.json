@@ -24,14 +24,14 @@
     ],
     "baseUrl": "."
   },
-  "exclude": [
-    "node_modules"
-  ],
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     "src/pages/test/mdx.jsx",
     "src/pages/test/mdview.jsx"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }
