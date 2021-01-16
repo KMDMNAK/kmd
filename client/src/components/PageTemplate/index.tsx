@@ -8,12 +8,13 @@ import {
     Text
 } from '@chakra-ui/react'
 
+const ENGLISH_FONTFAMILY = "SODO Sans, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif"
 const Component: React.FC<{ title: string, Content: React.FC }> = props => {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     return (<>
         {/* <div id={styles.sidebar}></div> */}
-        <Drawer {...{ isOpen, onClose }} />
+        {/* <Drawer {...{ isOpen, onClose }} /> */}
         <div>
             <div>
                 <img onClick={onOpen} id={styles['hamburger-icon']} src="/static/menu.svg" width="32" height="32" />
@@ -28,7 +29,7 @@ const Component: React.FC<{ title: string, Content: React.FC }> = props => {
                 <div className={styles["page-bottom"]}>
                     <div className={styles["title-and-content"]}>
                         <div className={styles["bottom-title"]}>
-                            <Text fontSize="4xl">{props.title}</Text>
+                            <Text fontSize="4xl" fontFamily={ENGLISH_FONTFAMILY}>{props.title}</Text>
                         </div>
                         <props.Content />
                     </div>
