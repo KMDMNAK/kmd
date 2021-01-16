@@ -1,5 +1,5 @@
 import React from 'react'
-import { ChakraProvider } from "@chakra-ui/react"
+import { ChakraProvider, extendTheme } from "@chakra-ui/react"
 
 export const withChakra = (App: React.FC<any>) => () => {
     return (
@@ -8,3 +8,11 @@ export const withChakra = (App: React.FC<any>) => () => {
         </ChakraProvider>
     )
 }
+
+
+// const fonts = {
+//     text: {
+//         fontFamily: "ＭＳ Ｐ明朝"
+//     },
+// }
+// export const theme = extendTheme({})
