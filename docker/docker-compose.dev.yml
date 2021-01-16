@@ -9,6 +9,8 @@ services:
     volumes:
       - ~/.ssh:/.ssh
       - ../client:/workspace
+      - ~/.vimrc:/root/.vimrc
+      - ~/.vim:/root/.vim
     tty: true
     command: "/bin/bash"
     network_mode: host
