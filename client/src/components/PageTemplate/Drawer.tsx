@@ -39,7 +39,7 @@ const Component: React.FC<{ onClose: () => void, isOpen: boolean }> = props => {
                 </DrawerContent>
             </DrawerOverlay>
         </Drawer>
-
     )
 }
+
 export default Component
