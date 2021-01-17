@@ -1,5 +1,8 @@
 version: "3.3"
 
+volumes:
+  ghost-vol:
+
 services:
   client:
     container_name: "kmd_client"
@@ -24,3 +27,5 @@ services:
     build:
       context: ../services/ghost
       dockerfile: Dockerfile
+    volumes:
+      - ghost-vol:/var/lib/ghost/content

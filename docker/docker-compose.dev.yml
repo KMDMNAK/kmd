@@ -1,38 +1,43 @@
 version: "3.3"
 
+volumes:
+  ghost-dev-vol:
+
 services:
-  client-dev:
+  client:
     container_name: "kmd_client_dev"
     build:
       context: ../client
       dockerfile: Dockerfile
     volumes:
       - ~/.ssh:/.ssh
-      - ../client:/workspace
+      - ../client:/root/workspace
       - ~/.vimrc:/root/.vimrc
       - ~/.vim:/root/.vim
     tty: true
     command: "/bin/bash"
     network_mode: host
-    extra_hosts:
-      - localhost:162.251.15.115
+    # extra_hosts:
+    #   - localhost:162.251.15.115
 
-  server-dev:
+  server:
     container_name: "kmd_server_dev"
     build:
       context: ../server
       dockerfile: Dockerfile
     volumes:
       - ~/.ssh:/.ssh
-      - ../server:/workspace
-    extra_hosts:
-      - localhost:162.251.15.115
+      - ../server:/root/workspace
+    # extra_hosts:
+    #   - localhost:162.251.15.115
   
-  ghost-dev:
+  ghost:
     container_name: "kmd_ghost_dev"
     build:
       context: ../services/ghost
       dockerfile: Dockerfile
     ports:
       - "2368:2368"
+    volumes:
+      - ghost-dev-vol:/var/lib/ghost/content
 
