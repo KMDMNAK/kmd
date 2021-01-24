@@ -1,0 +1,36 @@
+.container {}
+
+.introductiontitle {
+    text-align: center;
+}
+
+.iconwrapper {
+    display: inline-block;
+    height: 50px;
+    text-align: center;
+    margin: 0px auto;
+    width: 50px;
+}
+
+.icongithub {
+    position: absolute;
+    left: 0px;
+}
+
+.iconqiita {
+    position: absolute;
+    left: 40px;
+}
+
+.about {
+    height: 200px;
+    position: relative;
+}
+
+.blog {
+    height: 300px
+}
+
+.projects {
+    height: 100px
+}

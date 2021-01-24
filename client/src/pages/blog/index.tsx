@@ -1,45 +1,45 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import Error from 'next/error';
+
+import { Flex } from "@chakra-ui/react"
 
 import { withChakra } from '../../utils/Chakra'
 import Template from '../../components/PageTemplate'
-import Card from './Card'
-import { Flex } from "@chakra-ui/react"
+import Card from '../../components/BlogPostCard'
+import { getBlogHeaders, getBlogPage } from '../../modules/api'
 
 
-type ArticleData = {
-    title: string,
-    desc: string,
-    imgSrc: string,
-    date: Date
-}
-
-const Content = () => {
-    const mock: ArticleData[] = (new Array(10).fill(null)).map(
-        (_, i) => {
-            const mockItem = {
-                title: `Article${String(i)}`,
-                desc: `これはテスト!記事${String(i)}です。`,
-                imgSrc: "https://pbs.twimg.com/profile_images/1273307847103635465/lfVWBmiW_400x400.png",
-                date: new Date(),
-            }
-            return mockItem
-        })
-    // console.debug({ mock })
+const ArticleList = () => {
+    const [articles, setArticles] = useState<API.Article[]>([])
+    useEffect(() => {
+        getBlogHeaders(30).then(json => setArticles(json))
+    }, [null])
     return (
         <>
             <Flex wrap="wrap" justify="center" align="center" direction="row" shrink={1}>
-                {mock.map((data, i) => <>
-                    <Card {...data} key={data.title} />
+                {articles.map((article, i) => <>
+                    <Card {...article} key={article.id} />
                     {/* <Spacer /> */}
                 </>)}
             </Flex>
         </>
     )
 }
-const Page = () => {
-    return (<>
-        <Template title="Blog" Content={Content} />
-    </>)
+
+const getSrc = (html?: string) => {
+    if (!html) return ""
+    const blob = new Blob([html], { type: 'text/html' });
+    return URL.createObjectURL(blob);
+}
+
+
+const Page: React.FC = () => {
+    const router = useRouter()
+    const { id } = router.query
+    console.debug('Blog:id', { id })
+    return <Template title="Blog" Content={ArticleList} />
 }
 
 export default withChakra(Page)
