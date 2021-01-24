@@ -11,14 +11,19 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ~/.ssh:/.ssh
-      - ../client:/root/workspace
       - ~/.vimrc:/root/.vimrc
       - ~/.vim:/root/.vim
+      - ../client/src:/root/workspace/src
+      - ../client/private:/root/workspace/private
     tty: true
-    command: "/bin/bash"
     network_mode: host
-    # extra_hosts:
-    #   - localhost:162.251.15.115
+    extra_hosts:
+      - localhost:192.168.10.14
+    environment:
+      - USER_NAME
+      - USER_ID
+      - GROUP_NAME
+      - GROUP_ID
 
   server:
     container_name: "kmd_server_dev"
