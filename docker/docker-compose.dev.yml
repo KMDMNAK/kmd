@@ -15,6 +15,7 @@ services:
       - ~/.vim:/root/.vim
       - ../client/src:/root/workspace/src
       - ../client/private:/root/workspace/private
+      - ../client/package.json:/root/workspace/package.json
     tty: true
     network_mode: host
     extra_hosts:
@@ -44,5 +45,5 @@ services:
     ports:
       - "2368:2368"
     volumes:
-      - ghost-dev-vol:/var/lib/ghost/content
+      - ../services/ghost/data:/var/lib/ghost/content
 

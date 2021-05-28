@@ -28,4 +28,4 @@ services:
       context: ../services/ghost
       dockerfile: Dockerfile
     volumes:
-      - ghost-vol:/var/lib/ghost/content
+      - ../services/ghost/data:/var/lib/ghost/content
