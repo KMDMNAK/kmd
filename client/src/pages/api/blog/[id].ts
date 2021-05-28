@@ -13,7 +13,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     }
     console.debug({ url: req.url, id })
     const post = await ghostReader.client.posts.read({ id })
-    res.setHeader('content-type', 'text/html')
-    res.send(post.html)
+    res.setHeader('content-type', 'application/json')
+    res.send(post)
     return
 }

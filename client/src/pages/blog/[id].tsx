@@ -1,4 +1,4 @@
-import React, { IframeHTMLAttributes, useEffect, useState } from 'react'
+import React, { createContext, IframeHTMLAttributes, useContext, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Error from 'next/error';
@@ -12,20 +12,9 @@ import { getBlogHeaders, getBlogPage } from '../../modules/api'
 
 import "./postglobal.css"
 import "./post.css"
+// import "/static/css/blog.css"
 
 const ArticleList = () => {
-    // const mock: API.BlogPosts = (new Array(10).fill(null)).map(
-    //     (_, i) => {
-    //         const mockItem = {
-    //             title: `Article${String(i)}`,
-    //             desc: `これはテスト!記事${String(i)}です。`,
-    //             imgSrc: "https://pbs.twimg.com/profile_images/1273307847103635465/lfVWBmiW_400x400.png",
-    //             date: new Date(),
-    //             id: "testuid"
-    //         }
-    //         return mockItem
-    //     })
-    // console.debug({ mock })
     const [articles, setArticles] = useState<API.Article[]>([])
     useEffect(() => {
         getBlogHeaders(30).then(json => setArticles(json))
@@ -63,36 +52,49 @@ type Size = {
     height: string,
     isFirst: boolean
 }
-const ArticleView = (id: string): React.FC =>
-    () => {
-        const [article, setArticle] = useState<string>("")
-        const [frameSize, setSize] = useState<Size>({
-            width: "100%", height: "100%", isFirst: true
-        })
-        useEffect(() => {
-            getBlogPage(id).then(text => setArticle(text))
-        }, [null])
-        return (<>
-            <div className="post-full-content">
-                <iframe src={getSrc(article)}
-                    id="blog-frame"
-                    width={frameSize.width}
-                    height={frameSize.height}
-                    scrolling="no"
-                    onLoad={() => frameSize.isFirst ? changeFrameHeight('blog-frame', setSize) : () => { }}
-                >
-                </iframe>
-            </div>
-            {/* <div dangerouslySetInnerHTML={{ __html: article }} /> */}
-        </>)
-    }
+const ArticleContext = createContext<API.Article | null>(null)
+
+const ArticleView: React.FC<{}> = () => {
+    const article = useContext(ArticleContext)
+    if (!article) return <></>
+    const [frameSize, setSize] = useState<Size>({
+        width: "100%", height: "100%", isFirst: true
+    })
+    return (<>
+        <div className="post-full-content">
+            {/* {article && <iframe src={getSrc(article.html)}
+                id="blog-frame"
+                width={frameSize.width}
+                height={frameSize.height}
+                scrolling="no"
+                onLoad={() => frameSize.isFirst ? changeFrameHeight('blog-frame', setSize) : () => { }}
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    width: '100vw',
+                    maxWidth: '1040px'
+                }}
+            >
+            </iframe>} */}
+            <div dangerouslySetInnerHTML={{ __html: article.html || "" }} />
+        </div>
+    </>)
+}
 
 const Page: React.FC = () => {
     const router = useRouter()
     const { id } = router.query
     console.debug('Blog:id', { id })
     if (!id || typeof id !== "string") return <Error statusCode={404} />
-    return <Template title={id} Content={ArticleView(id)} />
+    const [article, setArticle] = useState<API.Article | null>(null)
+    useEffect(() => {
+        getBlogPage(id).then(item => setArticle(item))
+    }, [null])
+    return (
+        <ArticleContext.Provider value={article}>
+            <Template title={article ? article.title || "" : ""} Content={ArticleView} />
+        </ArticleContext.Provider>
+    )
 }
 
 export default withChakra(Page)

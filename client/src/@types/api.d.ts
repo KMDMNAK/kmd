@@ -14,6 +14,6 @@ declare namespace API {
         type ResponseBody = API.Article[]
     }
     namespace BlogPostPage {
-        type ResponseBody = Partial<API.Article>
+        type ResponseBody = API.Article
     }
 }
