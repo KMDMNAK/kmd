@@ -1,0 +1,14 @@
+#basket {
+    position: fixed;
+    bottom: 0;
+}
+
+.apple {
+    position: absolute;
+}
+
+#frame {
+    position: absolute;
+    width: 100%;
+    height: 90%;
+}
