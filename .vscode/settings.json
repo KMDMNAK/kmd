@@ -1,5 +1,6 @@
 {
     "css.lint.argumentsInColorFunction": "warning",
     "workbench.editor.enablePreview": false,
-    "editor.maxTokenizationLineLength": 200000
+    "editor.maxTokenizationLineLength": 200000,
+    "plantuml.exportOutDir": "docs/out"
 }
