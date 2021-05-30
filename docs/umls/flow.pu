@@ -1,0 +1,64 @@
+@startuml フロー
+!include <logos/netlify>
+!include <logos/now>
+!include <logos/github-icon>
+!include <logos/cloudflare>
+!include <logos/ghost>
+!include <logos/google-analytics>
+!include <logos/nginx>
+
+
+!include <logos/docker>
+!include <logos/jenkins>
+!include <logos/circleci>
+!include <logos/github>
+
+left to right direction
+
+package "Static Hosting" as sh {
+    rectangle "<$netlify>\n Netlify" as netlify
+    rectangle "<$now>\n Vercel" as vercel
+    rectangle "<$cloudflare>\nCloudFlare" as cf
+    rectangle "<$github-icon>\n<size:9>GithubPages</size>" as gp
+}
+
+Database "<$ghost>" as ghost
+Rectangle "<$google-analytics>\n**<size:8>Google Analysis</size>**" as analysis
+
+
+package "CI/CD" as cicd{
+    rectangle "<$docker>"{
+        rectangle "<$jenkins>"
+        rectangle "<$circleci>\nCircleCI"
+    }
+}
+
+
+Actor User
+Actor Developper
+
+Rectangle "<$github>" as github
+Developper -left-> github:**<size:16>push</size>**
+github -down-> cicd
+cicd -down-> sh :**<size:16>Deploy</size>**
+
+queue "<$nginx>" as nginx
+User -down-> nginx :**request**
+
+nginx --down-> vercel :**proxy**
+nginx --down-> cf: **proxy**
+nginx --down-> gp: **proxy**
+nginx --down-> netlify: **proxy**
+
+vercel --down--> ghost
+cf --down--> ghost
+gp --down--> ghost
+netlify --down-> ghost
+
+
+vercel --down--> analysis
+cf --down--> analysis
+gp --down--> analysis
+netlify --down--> analysis
+
+@enduml

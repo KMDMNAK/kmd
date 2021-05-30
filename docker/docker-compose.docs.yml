@@ -1,0 +1,38 @@
+version: "3.7"
+
+volumes: 
+    docs_node_modules:
+
+services:
+  dev:
+    container_name: myproject_docs_dev
+    build:
+      dockerfile: Dockerfile
+      context: ../docs
+    image: myproject_docs
+    working_dir: /root/workspace
+    volumes: 
+      - ../docs:/root/workspace
+      - docs_node_modules:/root/workspace/node_modules
+    tty: true
+    command: /bin/bash
+    network_mode: host
+
+  deploy:
+    container_name: myproject_docs_deploy
+    image: myproject_docs
+    volumes: 
+      - docs_node_modules:/root/workspace/node_modules
+      - ../docs:/root/workspace
+      - ~/.ssh:/root/.ssh
+      - ~/.gitconfig:/root/.gitconfig
+    environment: 
+      GIT_USER: KMDMNAK
+      USE_SSH: "true"
+    working_dir: /root/workspace
+    command: bash -c "dos2unix build.sh&&/bin/bash build.sh&&yarn deploy"
+  uml:
+    image: plantuml/plantuml-server
+    ports: 
+      - 7000:8080
+
