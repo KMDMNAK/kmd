@@ -1,1 +1,0 @@
-cd client && yarn build && yarn export

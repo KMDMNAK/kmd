@@ -1,9 +1,0 @@
-query toppage{
-    getCurrentArticleList{
-        title
-        pubDate
-        lastUpdate
-        descript
-        link
-    }
-}

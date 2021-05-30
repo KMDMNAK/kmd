@@ -1,7 +1,0 @@
-query notes{
-  getNotesArticles(page:0,list_amount:10){
-    id
-    title
-    sentences
-  }
-}
