@@ -7,7 +7,7 @@
     "node": "10"
     },
     "dependencies": {
-        "apollo-server": "^2.9.14",
+        "apollo-server": "^2.14.2",
         "apollo-server-express": "^2.9.14",
         "express": "^4.17.1",
         "firebase-admin": "^8.12.1",
