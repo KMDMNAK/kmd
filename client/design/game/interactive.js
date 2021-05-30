@@ -1,5 +1,13 @@
 const slider = interact('#basket')    // target elements with the "slider" class
 
+class BacketPosition {
+    x = 0
+    setX(x) {
+        this.x = x
+    }
+}
+const backetPosition = new BacketPosition()
+
 slider
     // Step 2
     .draggable({                        // make the element fire drag events
@@ -12,12 +20,10 @@ slider
         ],
         // Step 3
         listeners: {
-            move(event) {                  // call this listener on every dragmove
-                // const sliderWidth = interact.getElementRect(event.target).width
-                const value = event.pageX - parseInt(BASKET_WIDHT * 0.5) // sliderWidth
-
-                // event.target.style.paddingLeft = (value * 100) + '%'
-                event.target.style.paddingLeft = value + 'px' //'%'
+            move(event) {
+                const value = event.pageX - parseInt(BASKET_WIDHT * 0.5)
+                backetPosition.setX(value)
+                event.target.style.paddingLeft = value + 'px'
             }
         }
     })

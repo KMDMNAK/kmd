@@ -1,14 +1,14 @@
-const BASKET_WIDHT = 128
-const BASKET_HEIGHT = 128
-const APPLE_WIDTH = 64
-const APPLE_HEIGHT = 64
+const BASKET_WIDHT = 64
+const BASKET_HEIGHT = 64
+const APPLE_WIDTH = 32
+const APPLE_HEIGHT = 32
 
 class Apple {
     id = "apple"
     y = 10
     x = 0
     speed = 10
-
+    APPLE_SRC = "./apple.svg"
     /**
      * 
      * @param {*} x 
@@ -22,15 +22,13 @@ class Apple {
         this.doc.setAttribute("class", "apple")
         this.x = x
         this.y = y
+        this.center = this.x + parseInt(APPLE_WIDTH * 0.5)
         this.speed = speed
-        field.appendChild(this.doc)
-        this.doc.onload = () => {
-
-        }
-        this.doc.src = "./apple.svg"
+        this.doc.src = this.APPLE_SRC
         this.doc.style.left = x
         this.doc.style.top = y
         this.MAX_Y = MAX_Y
+        field.appendChild(this.doc)
     }
     update() {
         this.y += this.speed
@@ -44,15 +42,17 @@ class Apple {
 
 class Basket {
     id = "basket"
-    constructor() {
+    BASKET_SRC = "./wicker-basket-white.svg"
+
+    constructor(bottom) {
         this.doc = document.getElementById(this.id)
         if (!this.doc) throw Error("No doc exists")
         new Setupper(this.doc, BASKET_WIDHT, BASKET_HEIGHT)
-        this.img = new Image();
-        this.img.onload = function () {
-            // ctx.drawImage(img, 0, 0);
-        }
-        this.img.src = "./basket.svg"
+        this.doc.setAttribute('src', this.BASKET_SRC)
+        this.bottom = bottom
+        this.doc.style.bottom = this.bottom
+        this.WIDTH = this.doc.offsetWidth
+        this.HEIGHT = this.doc.offsetHeight
     }
 }
 
@@ -68,7 +68,6 @@ class Setupper {
         obj.style.height = `${height}`
     }
 }
-
-const B = new Basket()
+const B = new Basket(200)
 
 
