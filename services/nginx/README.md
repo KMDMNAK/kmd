@@ -1,0 +1,1 @@
+nginxを、clientからのrequestに対して特定のサービスに中継するproxy serverとして利用する。

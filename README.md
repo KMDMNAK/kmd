@@ -1,5 +1,9 @@
 # KMD blog
 
+# Specifications
+
+- sign in with google account and github account.
+
 ## client
 ## technologies
 - apollo

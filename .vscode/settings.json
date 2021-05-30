@@ -1,4 +1,5 @@
 {
     "css.lint.argumentsInColorFunction": "warning",
-    "workbench.editor.enablePreview": false
+    "workbench.editor.enablePreview": false,
+    "editor.maxTokenizationLineLength": 200000
 }
