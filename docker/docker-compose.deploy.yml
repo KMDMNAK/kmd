@@ -1,0 +1,17 @@
+version: "3.7"
+
+services: 
+    vercel:
+        container_name: kmd_vercel
+        build: 
+            context: ../client
+            dockerfile: ../client/Dockerfile.deploy
+        volumes: 
+            - ../.git:/root/.git
+            - ~/.ssh:/root/.ssh
+            - ~/.gitconfig:/root/.gitconfig
+            - ../client:/root/workspace
+        working_dir: /root/workspace
+        command: /bin/sh
+        tty: true
+        network_mode: host

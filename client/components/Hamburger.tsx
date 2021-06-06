@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default ({ width, height }: { width: number, height: number }) => (
+const Hamburger = ({ width, height }: { width: number, height: number }) => (
     <svg viewBox={`0 0 ${width} ${height}`} fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
             d="M12.1338 21H54.1338C54.9066 21 55.5338 20.3742 55.5338 19.6C55.5338 18.8258 54.9066 18.2 54.1338 18.2H12.1338C11.361 18.2 10.7338 18.8258 10.7338 19.6C10.7338 20.3742 11.3596 21 12.1338 21Z"
@@ -13,3 +13,5 @@ export default ({ width, height }: { width: number, height: number }) => (
             fill="white" />
     </svg>
 )
+
+export default Hamburger

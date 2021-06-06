@@ -1,6 +1,5 @@
 import React from 'react'
-
-export default () => (
+const Leaves = () => (
     <div id="leaves">
         <i></i>
         <i></i>
@@ -19,3 +18,4 @@ export default () => (
         <i></i>
     </div>
 )
+export default Leaves
