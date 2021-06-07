@@ -20,7 +20,7 @@ const Sidebar: React.FC<{ width: number, right: number }> = ({ width, right }) =
     return (
         <div style={{
             position: "fixed",
-            height: "768px",
+            height: "100%",
             top: "0px",
             background: "#F4855E",
             zIndex: 9,
