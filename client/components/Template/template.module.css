@@ -22,6 +22,7 @@
     height: 420px;
     background: #1F3932;
     position: relative;
+    overflow-y: hidden;
 }
 
 .tree {
