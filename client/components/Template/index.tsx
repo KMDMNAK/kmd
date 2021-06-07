@@ -15,6 +15,13 @@ const Template: React.FC<{
     meta: string,
     textField: React.ReactNode
 }> = ({ title, meta, textField }) => {
+    // const [overflowX, setOverflowX] = useState<'visible' | 'hidden' | 'clip' | 'scroll' | 'auto'>('visible')
+    // useEffect(() => {
+    //     window.addEventListener('resize', () => {
+    //         console.debug('document.documentElement.clientWidth', document.documentElement.clientWidth)
+    //         setOverflowX(document.documentElement.clientWidth < 400 ? 'clip' : 'visible')
+    //     });
+    // }, [null])
     return (
         <div>
             <Head>
@@ -24,9 +31,9 @@ const Template: React.FC<{
             </Head>
             <div className={styles.frame}>
                 <Navicon />
-                <div className={styles.top}>
+                <div className={styles.top} style={{ overflowX: 'hidden' }}>
                     <Leaves />
-                    <div className={styles.tree}>
+                    <div className={styles.tree} >
                         <Tree width={400} height={400} color={"#006241"} />
                     </div>
                 </div>

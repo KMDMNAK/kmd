@@ -25,10 +25,12 @@
 }
 
 .tree {
-    width: 400px;
-    right: 0;
-    left: 0;
-    margin: auto;
+    /* width: 400px; */
+    /* right: 0;
+    left: 0; */
+    /* margin: auto; */
+	left      : 50%;
+	transform : translate(-50%, 0%);
     bottom: 0;
     position: absolute;
 }
