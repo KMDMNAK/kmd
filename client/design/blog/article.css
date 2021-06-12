@@ -1,0 +1,89 @@
+.first-article {
+    position: absolute;
+    left: 15%;
+    top: 130px;
+}
+
+.second-article {
+    position: absolute;
+    left: 15%;
+    top: 250px;
+}
+
+.third-article{
+    position: absolute;
+    left: 15%;
+    top: 370px;
+}
+
+.article-field{
+}
+
+.article-rectangle {
+    position: relative;
+    /* width: 750px; */
+    width: 700px;
+    height: 70px;
+    background: rgba(0, 100, 65, 0.9);
+    border-radius: 10px;
+}
+
+.article-title {
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    width: 102px;
+    height: 64px;
+    font-family: Sanchez;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 35px;
+    line-height: 64px;
+    /* identical to box height */
+    text-align: center;
+    color: #DDDDDD;
+}
+
+.article-date {
+    position: absolute;
+    width: 200px;
+    height: 35px;
+    bottom: 0px;
+    right: 5%;
+    font-family: Sanchez;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 35px;
+    /* identical to box height */
+    text-align: center;
+    color: #DDDDDD;
+}
+
+.article-first-tag {
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    right: 10%;
+    font-family: Sanchez;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 38px;
+    text-align: center;
+    color: #DDDDDD;
+}
+
+.article-second-tag {
+    /* #tag2 */
+    position: absolute;
+    width: 138px;
+    height: 45px;
+    font-family: Sanchez;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 38px;
+    text-align: center;
+    color: #DDDDDD;
+}

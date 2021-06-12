@@ -1,0 +1,86 @@
+
+
+/* Group 9 */
+
+position: absolute;
+width: 45px;
+height: 45px;
+left: 272px;
+top: 680px;
+/* Polygon 1 */
+
+position: absolute;
+width: 30px;
+height: 20px;
+left: 285px;
+top: 718px;
+background: #006441;
+transform: rotate(-90deg);
+/* Group 12 */
+
+position: absolute;
+width: 45px;
+height: 45px;
+left: 210px;
+top: 680px;
+/* Polygon 1 */
+
+position: absolute;
+width: 30px;
+height: 15px;
+left: 218px;
+top: 718px;
+background: #006441;
+transform: rotate(-90deg);
+/* Polygon 2 */
+
+position: absolute;
+width: 30px;
+height: 15px;
+left: 233px;
+top: 718px;
+background: #006441;
+transform: rotate(-90deg);
+/* Group 13 */
+
+position: absolute;
+width: 45px;
+height: 45px;
+left: 663px;
+top: 725px;
+transform: rotate(180deg);
+/* Polygon 1 */
+
+position: absolute;
+width: 30px;
+height: 15px;
+left: 655px;
+top: 687px;
+background: #006441;
+transform: rotate(90deg);
+/* Polygon 2 */
+
+position: absolute;
+width: 30px;
+height: 15px;
+left: 640px;
+top: 687px;
+background: #006441;
+transform: rotate(90deg);
+/* Group 10 */
+
+position: absolute;
+width: 45px;
+height: 45px;
+left: 601px;
+top: 725px;
+transform: rotate(180deg);
+/* Polygon 1 */
+
+position: absolute;
+width: 30px;
+height: 20px;
+left: 588px;
+top: 687px;
+background: #006441;
+transform: rotate(90deg);
