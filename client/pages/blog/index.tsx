@@ -22,29 +22,34 @@ interface BlogPageProps {
 const BlogListPage: React.FC<BlogPageProps> = props => {
     const converter = new ArticleConverter()
     const [articles, setArticles] = useState<DataType.Article[]>(props.articles.map(converter.deserialize))
-    const [page, setPage] = useState<number>(0)
     const router = useRouter()
-    useEffect(() => {
-        router.query.page = String(page)
-        console.debug({ page })
-        router.push(router)
-    }, [page])
     const backClick = async () => {
-        const res = await fetch(`/api/article?page=${page + 1}`)
+        const page = router.query.page ? parseInt(router.query.page as string) : 0
+        router.query.page = String(1 + (page ? page : 0))
+        const res = await fetch(`/api/article?page=${router.query.page}`)
         if (res.status > 300) return
         const { articles } = await res.json() as ArticleAPIResponse
-        setPage(page + 1)
         setArticles(articles.map(converter.deserialize))
+        router.push(router)
     }
     const mostBackClick = () => { }
     const forwardClick = async () => {
-        const res = await fetch(`/api/article?page=${page - 1}`)
+        const page = router.query.page ? parseInt(router.query.page as string) : 0
+        router.query.page = String((page ? page : 0) - 1)
+        const res = await fetch(`/api/article?page=${router.query.page}`)
         if (res.status > 300) return
         const { articles } = await res.json() as ArticleAPIResponse
-        setPage(page - 1)
         setArticles(articles.map(converter.deserialize))
+        router.push(router)
     }
-    const mostForwardClick = () => { }
+    const mostForwardClick = async () => {
+        const res = await fetch(`/api/article?page=${0}`)
+        if (res.status > 300) return
+        const { articles } = await res.json() as ArticleAPIResponse
+        setArticles(articles.map(converter.deserialize))
+        router.query.page = String(0)
+        router.push(router)
+    }
     return (
         <div>
             <Head>
