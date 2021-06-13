@@ -1,0 +1,8 @@
+.ellipse {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: #EEEEEE;
+    border-radius: 50%;
+    cursor: pointer;
+}

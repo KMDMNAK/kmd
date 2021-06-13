@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
 
-import Navicon from './Navicon'
+import Navicon from '../Navicon'
 import styles from './template.module.css'
 // import Hamburger from '../../components/hamburger'
 

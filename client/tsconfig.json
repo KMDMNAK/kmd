@@ -5,6 +5,9 @@
       "@/components/*": [
         "components/*"
       ],
+      "@/modules/*": [
+        "modules/*"
+      ],
       "@/styles/*": [
         "styles/*"
       ]
@@ -25,7 +28,11 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "typeRoots": [
+      "node_modules/@types",
+      "@types"
+    ]
   },
   "include": [
     "next-env.d.ts",

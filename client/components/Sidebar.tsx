@@ -29,6 +29,7 @@ const Sidebar: React.FC<{ width: number, right: number }> = ({ width, right }) =
         }} >
             <Column top="50px" title="はじめに" href="/" />
             <Column top="100px" title="About" href="/about" />
+            <Column top="150px" title="Blog" href="/blog" />
         </div >
     )
 }

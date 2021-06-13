@@ -1,0 +1,15 @@
+.loupe-box {
+    position: fixed;
+    width: 250px;
+    height: 40px;
+    right: 18%;
+    top: 52px;
+    background: #EEEEEE;
+    border-radius: 12px;
+}
+
+.loupe {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+}

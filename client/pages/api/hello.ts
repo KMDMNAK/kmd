@@ -6,5 +6,6 @@ type Data = {
 }
 
 export default (req: NextApiRequest, res: NextApiResponse<Data>) => {
+  req.query
   res.status(200).json({ name: 'John Doe' })
 }

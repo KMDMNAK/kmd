@@ -36,28 +36,6 @@
     position: absolute;
 }
 
-.navicon {
-    position: fixed;
-    width: 130px;
-    height: 768px;
-    right: 0;
-    top: 0;
-    z-index: 10;
-}
-
-.hamburger {
-    cursor: pointer;
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    /* left: 925px; */
-    top: 45px;
-    right: 0;
-    left: 0;
-    margin-left: auto;
-    margin-right: auto;
-    z-index: 1;
-}
 
 .title {
     padding-left: auto;
