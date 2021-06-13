@@ -24,7 +24,7 @@ const BlogListPage: React.FC<BlogPageProps> = props => {
     const [articles, setArticles] = useState<DataType.Article[]>(props.articles.map(converter.deserialize))
     const router = useRouter()
     const backClick = async () => {
-        const page = router.query.page ? parseInt(router.query.page as string) : 0
+        const page = parseInt(router.query.page as string)
         router.query.page = String(1 + (page ? page : 0))
         const res = await fetch(`/api/article?page=${router.query.page}`)
         if (res.status > 300) return
@@ -34,7 +34,7 @@ const BlogListPage: React.FC<BlogPageProps> = props => {
     }
     const mostBackClick = () => { }
     const forwardClick = async () => {
-        const page = router.query.page ? parseInt(router.query.page as string) : 0
+        const page = parseInt(router.query.page as string)
         router.query.page = String((page ? page : 0) - 1)
         const res = await fetch(`/api/article?page=${router.query.page}`)
         if (res.status > 300) return
