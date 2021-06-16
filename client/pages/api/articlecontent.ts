@@ -2,13 +2,13 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { ArticleConverter, ArticleProvider } from '@/modules/blog'
 
-export type ArticleAPIResponse = { articles: DataType.SerializedArticle[] }
-export default async (req: NextApiRequest, res: NextApiResponse<ArticleAPIResponse>) => {
-    let page = parseInt(req.query.page as string)
-    page = page ? page : 0
+export type ArticleContetAPIResponse = { article: DataType.Article }
+export default async (req: NextApiRequest, res: NextApiResponse<ArticleContetAPIResponse>) => {
+    let postId = req.query.postId as string
     const articleProvider = new ArticleProvider()
     const converter = new ArticleConverter()
+    const article = await articleProvider.getArticleContent(postId)
     res.status(200).json({
-        articles: (await articleProvider.getArticle(page)).map(converter.serialize)
+        article
     })
 }

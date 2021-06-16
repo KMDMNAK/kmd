@@ -1,50 +1,47 @@
 import EnvProvider from '@/modules/env'
+import { GhostProvider } from './ghost'
+import { PostOrPage } from '@tryghost/content-api'
 
-const ARTICLE_LIST: DataType.Article[] = [
-    {
-        id: "0",
-        title: "First Article",
-        content: "<p>This is First Article</p>",
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        tags: ["test", "test1"]
-    }, {
-        id: "1",
-        title: "Second Article",
-        content: "<p>This is Second Article</p>",
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        tags: ["test", "test2"]
-    }, {
-        id: "2",
-        title: "Third Article",
-        content: "<p>This is Third Article</p>",
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        tags: ["test", "test3"]
-    }, {
-        id: "3",
-        title: "Forth Article",
-        content: "<p>This is Forth Article</p>",
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        tags: ["test", "test4"]
-    }, {
-        id: "4",
-        title: "Fifth Article",
-        content: "<p>This is Fifth Article</p>",
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        tags: ["test", "test4"]
-    }
-]
+const ghost2localArticle = (post: PostOrPage, containContent: boolean) => ({
+    id: post.id,
+    title: post.title,
+    content: containContent ? post.html : "",
+    createdAt: post.created_at ? new Date(post.created_at) : null,
+    updatedAt: post.updated_at ? new Date(post.updated_at) : null,
+    tags: post.tags ? post.tags.map(tag => tag.name) : []
+}) as DataType.Article
 
 export class ArticleProvider {
-    async getArticle(startPage: number): Promise<DataType.Article[]> {
-        const articleNum = EnvProvider.getArticleNumber()
-        return ARTICLE_LIST.slice(
-            articleNum * startPage, (1 + startPage) * articleNum
-        )
+    private getNullArticle(): DataType.Article {
+        return {
+            id: "",
+            title: "",
+            content: "",
+            createdAt: new Date(),
+            updatedAt: new Date(),
+            tags: []
+        }
+    }
+    async getArticleList(startPage: number): Promise<DataType.Article[]> {
+        if (startPage < 0) return []
+        const articleNum = EnvProvider.getArticleListNumber()
+        const api = GhostProvider.get()
+        if (!api) return []
+        const posts = await api.posts.browse({
+            page: startPage + 1,
+            limit: articleNum
+        })
+        return posts.map(post => ghost2localArticle(post, false))
+        // return ARTICLE_LIST.slice(
+        //     articleNum * startPage, (1 + startPage) * articleNum
+        // )
+    }
+
+    async getArticleContent(postId: string): Promise<DataType.Article> {
+        const api = GhostProvider.get()
+        if (!api) return this.getNullArticle()
+        const read = await api?.posts.read({ id: postId })
+        return ghost2localArticle(read, true)
     }
 }
 

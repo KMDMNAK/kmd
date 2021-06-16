@@ -38,8 +38,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "**/styles"
-  ],
+    "**/styles"],
   "exclude": [
     "node_modules",
     "modules/game/**/*.ts",

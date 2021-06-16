@@ -6,4 +6,11 @@ module.exports = {
         }
         return config
     },
+    webpack: (config, options) => {
+        config.module.rules.push({
+            test: /\.txt$/i,
+            use: 'raw-loader',
+        })
+        return config
+    },
 }

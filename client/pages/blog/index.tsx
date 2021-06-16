@@ -12,7 +12,7 @@ import SearchBox from '@/components/blog/SearchBox'
 import styles from '@/styles/Blog.module.css'
 
 import { ArticleProvider, ArticleConverter } from '@/modules/blog'
-import { ArticleAPIResponse } from 'pages/api/article'
+import { ArticleListAPIResponse } from '../api/articlelist'
 import { useRouter } from 'next/dist/client/router'
 
 interface BlogPageProps {
@@ -26,26 +26,29 @@ const BlogListPage: React.FC<BlogPageProps> = props => {
     const backClick = async () => {
         const page = parseInt(router.query.page as string)
         router.query.page = String(1 + (page ? page : 0))
-        const res = await fetch(`/api/article?page=${router.query.page}`)
+        const res = await fetch(`/api/articlelist?page=${router.query.page}`)
         if (res.status > 300) return
-        const { articles } = await res.json() as ArticleAPIResponse
+        const { articles } = await res.json() as ArticleListAPIResponse
         setArticles(articles.map(converter.deserialize))
         router.push(router)
     }
     const mostBackClick = () => { }
     const forwardClick = async () => {
         const page = parseInt(router.query.page as string)
+        if (page - 1 < 0) {
+            return
+        }
         router.query.page = String((page ? page : 0) - 1)
-        const res = await fetch(`/api/article?page=${router.query.page}`)
+        const res = await fetch(`/api/articlelist?page=${router.query.page}`)
         if (res.status > 300) return
-        const { articles } = await res.json() as ArticleAPIResponse
+        const { articles } = await res.json() as ArticleListAPIResponse
         setArticles(articles.map(converter.deserialize))
         router.push(router)
     }
     const mostForwardClick = async () => {
-        const res = await fetch(`/api/article?page=${0}`)
+        const res = await fetch(`/api/articlelist?page=${0}`)
         if (res.status > 300) return
-        const { articles } = await res.json() as ArticleAPIResponse
+        const { articles } = await res.json() as ArticleListAPIResponse
         setArticles(articles.map(converter.deserialize))
         router.query.page = String(0)
         router.push(router)
@@ -87,7 +90,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const converter = new ArticleConverter()
     try {
         const provider = new ArticleProvider()
-        articles = await provider.getArticle(page ? page : 0)
+        articles = await provider.getArticleList(page ? page : 0)
     } catch (e) {
         console.error(e)
         articles = []

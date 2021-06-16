@@ -21,7 +21,7 @@ export default function Navicon() {
                 setRight(-WIDTH)
             }
         }
-        document.addEventListener("mousedown", handleClickOutside);
+        document.addEventListener("mousedown", handleClickOutside, false);
     }, [null])
     return (
         <div className={styles.navicon} ref={navigationRef}>
