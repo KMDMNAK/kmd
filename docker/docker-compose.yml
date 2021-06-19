@@ -6,7 +6,7 @@ services:
             context: ../services/ghost
             dockerfile: Dockerfile
         volumes:
-            ../data/content:/var/lib/ghost/content
+            - ../data/content:/var/lib/ghost/content
         environment:
             url: http://localhost:2368
         ports:
