@@ -30,6 +30,9 @@ export class ArticleProvider {
         const posts = await api.posts.browse({
             page: startPage + 1,
             limit: articleNum
+        }).catch(e => {
+            console.error(e.toString())
+            return []
         })
         return posts.map(post => ghost2localArticle(post, false))
         // return ARTICLE_LIST.slice(
@@ -40,8 +43,11 @@ export class ArticleProvider {
     async getArticleContent(postId: string): Promise<DataType.Article> {
         const api = GhostProvider.get()
         if (!api) return this.getNullArticle()
-        const read = await api?.posts.read({ id: postId })
-        return ghost2localArticle(read, true)
+        const read = await api?.posts.read({ id: postId }).catch(e => {
+            console.error(e.toString())
+            return null
+        })
+        return read ? ghost2localArticle(read, true) : this.getNullArticle()
     }
 }
 
