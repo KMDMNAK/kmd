@@ -2,8 +2,10 @@ const { OUTPUT_DIRECTORY, CSS_FILENAMES } = require('./getCasper')
 const fs = require('fs')
 const path = require('path')
 const REPLACES = {
-    ":root": ".post-full-content",
-    "#fff": "#D5DFD8"
+    ":root": ".post-content",
+    "#fff": "#D5DFD8",
+    // "1040px": "860px",
+    // "box-sizing:inherit": "box-sizing:border-box"
 }
 const res = CSS_FILENAMES.map(fileName => {
     const filePath = path.join(OUTPUT_DIRECTORY, `${fileName}`)

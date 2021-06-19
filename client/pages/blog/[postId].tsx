@@ -7,6 +7,7 @@ import { ArticleContetAPIResponse } from 'pages/api/articlecontent'
 import ShadowDOM from 'react-shadow';
 import Casper from '@/components/Casper'
 
+import Api from '@/modules/api'
 
 const BlogContentPage: React.FC = () => {
     const router = useRouter()
@@ -14,36 +15,34 @@ const BlogContentPage: React.FC = () => {
     console.debug('router.route', router.route, router.query)
     useEffect(() => {
         if (!router.query.postId) return
-        fetch(`/api/articlecontent?postId=${router.query.postId}`)
+        const core = Api.get()
+        core.getArticleContent(router.query.postId as string)
             .then(res => res.json())
-            .then((res: ArticleContetAPIResponse) => {
-                setArticle(res.article)
-            })
+            .then((res: ArticleContetAPIResponse) => setArticle(res.article))
     }, [router.query])
     return (
         <Template
             title={article ? article.title : "None"}
             meta=""
             textField={<TextField title={article ? article.title : "None"} >
-                <div>
-                    {
-                        article ?
-                            <ShadowDOM.div>
-                                {/* <link href="/Casper/global.css" rel="stylesheet"></link>
+
+                {
+                    article ?
+                        <ShadowDOM.div>
+                            {/* <link href="/Casper/global.css" rel="stylesheet"></link>
                         <link href="/Casper/screen.css" rel="stylesheet"></link> */}
-                                <Casper />
-                                <article className="post-full post">
-                                    <div className="post-full-content">
-                                        <div className="post-content">
-                                            <div dangerouslySetInnerHTML={{ __html: article?.content }} ></div>
-                                        </div>
+                            <Casper />
+                            <article className="post-full post">
+                                <div className="post-full-content">
+                                    <div className="post-content" dangerouslySetInnerHTML={{ __html: article?.content }}>
+                                        {/* <span  ></span> */}
                                     </div>
-                                    <script src="/Casper/casper.js"></script>
-                                </article>
-                            </ShadowDOM.div> :
-                            <></>
-                    }
-                </div>
+                                </div>
+                                <script src="/Casper/casper.js"></script>
+                            </article>
+                        </ShadowDOM.div> :
+                        <></>
+                }
             </TextField>
             }
         />

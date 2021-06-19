@@ -9,7 +9,8 @@ const Column: React.FC<{ title: string, top: string, href: string }> = ({ title,
         right: 0,
         width: "100px",
         marginLeft: 'auto',
-        marginRight: 'auto'
+        marginRight: 'auto',
+        fontSize: '17px'
     }}>
         <Link href={href}>
             {title}

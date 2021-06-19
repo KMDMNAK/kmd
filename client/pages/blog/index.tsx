@@ -11,6 +11,8 @@ import SearchBox from '@/components/blog/SearchBox'
 
 import styles from '@/styles/Blog.module.css'
 
+import Api from '@/modules/api'
+
 import { ArticleProvider, ArticleConverter } from '@/modules/blog'
 import { ArticleListAPIResponse } from '../api/articlelist'
 import { useRouter } from 'next/dist/client/router'
@@ -26,7 +28,8 @@ const BlogListPage: React.FC<BlogPageProps> = props => {
     const backClick = async () => {
         const page = parseInt(router.query.page as string)
         router.query.page = String(1 + (page ? page : 0))
-        const res = await fetch(`/api/articlelist?page=${router.query.page}`)
+        const core = Api.get()
+        const res = await core.getArticleList(router.query.page)
         if (res.status > 300) return
         const { articles } = await res.json() as ArticleListAPIResponse
         setArticles(articles.map(converter.deserialize))
@@ -39,14 +42,16 @@ const BlogListPage: React.FC<BlogPageProps> = props => {
             return
         }
         router.query.page = String((page ? page : 0) - 1)
-        const res = await fetch(`/api/articlelist?page=${router.query.page}`)
+        const core = Api.get()
+        const res = await core.getArticleList(router.query.page)
         if (res.status > 300) return
         const { articles } = await res.json() as ArticleListAPIResponse
         setArticles(articles.map(converter.deserialize))
         router.push(router)
     }
     const mostForwardClick = async () => {
-        const res = await fetch(`/api/articlelist?page=${0}`)
+        const core = Api.get()
+        const res = await core.getArticleList("0")
         if (res.status > 300) return
         const { articles } = await res.json() as ArticleListAPIResponse
         setArticles(articles.map(converter.deserialize))
