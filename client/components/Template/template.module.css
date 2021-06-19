@@ -55,7 +55,7 @@
 }
 
 .text-field {
-    width: 80%;
+    width: 90%;
     display: inline-block;
     margin-bottom: 30px;
     font-size: 18px;
@@ -65,7 +65,7 @@
 .post-full-content {
     position: relative;
     margin: 0 auto;
-    padding: 0 170px 6vw;
+    padding: 0 10% 6vw;
     min-height: 230px;
     font-family: Georgia, serif;
     font-size: 2rem;

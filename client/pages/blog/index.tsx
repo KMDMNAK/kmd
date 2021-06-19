@@ -76,7 +76,7 @@ const BlogListPage: React.FC<BlogPageProps> = props => {
                 <div className={styles["article-field"]}>
                     {articles
                         .map((article, i) => (
-                            <div key={String(i)} style={{ position: 'absolute', left: "15%", top: 130 + 120 * i }}>
+                            <div key={String(i)} style={{ position: 'absolute', left: "15%", width: '80%', top: 130 + 120 * i }}>
                                 <Article {...article} />
                             </div>)
                         )}

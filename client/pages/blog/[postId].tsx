@@ -25,7 +25,6 @@ const BlogContentPage: React.FC = () => {
             title={article ? article.title : "None"}
             meta=""
             textField={<TextField title={article ? article.title : "None"} >
-
                 {
                     article ?
                         <ShadowDOM.div>

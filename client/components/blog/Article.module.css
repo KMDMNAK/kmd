@@ -1,6 +1,6 @@
 
 
-@media (min-width: 850px) {
+@media (min-width: 900px) {
     .article-rectangle {
         position: relative;
         width: 750px;
@@ -10,10 +10,12 @@
     }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 900px) {
     .article-rectangle{
-        position: relative;
-        width: 250px;
+        /* position: relative; */
+        position: static ;
+        /* max-width: 80%; */
+        /* width: 80%; */
         height: 70px;
         background: rgba(0, 100, 65, 0.9);
         border-radius: 10px;
